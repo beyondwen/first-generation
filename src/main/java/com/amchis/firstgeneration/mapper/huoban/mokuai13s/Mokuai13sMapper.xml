@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.amchis.firstgeneration.mapper.huoban.mokuai13s.Mokuai13sMapper">
+    <resultMap id="BaseResultMap" type="com.amchis.firstgeneration.bean.huoban.mokuai13s.Mokuai13s">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="waijian" jdbcType="VARCHAR" property="waijian"/>
+        <result column="biaoming" jdbcType="VARCHAR" property="biaoming"/>
+        <result column="mingcheng" jdbcType="VARCHAR" property="mingcheng"/>
+        <result column="zhushi" jdbcType="VARCHAR" property="zhushi"/>
+        <result column="shixiao" jdbcType="VARCHAR" property="shixiao"/>
+        <result column="riqi" jdbcType="VARCHAR" property="riqi"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, waijian, biaoming, mingcheng, zhushi, shixiao, riqi
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from mokuai13s
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="getAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from mokuai13s
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from mokuai13s
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.amchis.firstgeneration.bean.huoban.mokuai13s.Mokuai13s">
+    insert into mokuai13s (id, waijian, biaoming, 
+      mingcheng, zhushi, shixiao, 
+      riqi)
+    values (#{id,jdbcType=INTEGER}, #{waijian,jdbcType=VARCHAR}, #{biaoming,jdbcType=VARCHAR}, 
+      #{mingcheng,jdbcType=VARCHAR}, #{zhushi,jdbcType=VARCHAR}, #{shixiao,jdbcType=VARCHAR}, 
+      #{riqi,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.amchis.firstgeneration.bean.huoban.mokuai13s.Mokuai13s">
+        insert into mokuai13s
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="waijian != null">
+                waijian,
+            </if>
+            <if test="biaoming != null">
+                biaoming,
+            </if>
+            <if test="mingcheng != null">
+                mingcheng,
+            </if>
+            <if test="zhushi != null">
+                zhushi,
+            </if>
+            <if test="shixiao != null">
+                shixiao,
+            </if>
+            <if test="riqi != null">
+                riqi,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="waijian != null">
+                #{waijian,jdbcType=VARCHAR},
+            </if>
+            <if test="biaoming != null">
+                #{biaoming,jdbcType=VARCHAR},
+            </if>
+            <if test="mingcheng != null">
+                #{mingcheng,jdbcType=VARCHAR},
+            </if>
+            <if test="zhushi != null">
+                #{zhushi,jdbcType=VARCHAR},
+            </if>
+            <if test="shixiao != null">
+                #{shixiao,jdbcType=VARCHAR},
+            </if>
+            <if test="riqi != null">
+                #{riqi,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.amchis.firstgeneration.bean.huoban.mokuai13s.Mokuai13s">
+        update mokuai13s
+        <set>
+            <if test="waijian != null">
+                waijian = #{waijian,jdbcType=VARCHAR},
+            </if>
+            <if test="biaoming != null">
+                biaoming = #{biaoming,jdbcType=VARCHAR},
+            </if>
+            <if test="mingcheng != null">
+                mingcheng = #{mingcheng,jdbcType=VARCHAR},
+            </if>
+            <if test="zhushi != null">
+                zhushi = #{zhushi,jdbcType=VARCHAR},
+            </if>
+            <if test="shixiao != null">
+                shixiao = #{shixiao,jdbcType=VARCHAR},
+            </if>
+            <if test="riqi != null">
+                riqi = #{riqi,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.amchis.firstgeneration.bean.huoban.mokuai13s.Mokuai13s">
+    update mokuai13s
+    set waijian = #{waijian,jdbcType=VARCHAR},
+      biaoming = #{biaoming,jdbcType=VARCHAR},
+      mingcheng = #{mingcheng,jdbcType=VARCHAR},
+      zhushi = #{zhushi,jdbcType=VARCHAR},
+      shixiao = #{shixiao,jdbcType=VARCHAR},
+      riqi = #{riqi,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.amchis.firstgeneration.mapper.huoban.tijian5s.Tijian5sMapper">
+    <resultMap id="BaseResultMap" type="com.amchis.firstgeneration.bean.huoban.tijian5s.Tijian5s">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="waijian" jdbcType="VARCHAR" property="waijian"/>
+        <result column="yonghuwaijian" jdbcType="VARCHAR" property="yonghuwaijian"/>
+        <result column="tizhong" jdbcType="VARCHAR" property="tizhong"/>
+        <result column="kongfu" jdbcType="VARCHAR" property="kongfu"/>
+        <result column="wanerxiaoshi" jdbcType="VARCHAR" property="wanerxiaoshi"/>
+        <result column="tanghuaxuehongdanbai" jdbcType="VARCHAR" property="tanghuaxuehongdanbai"/>
+        <result column="ganyousanzhi" jdbcType="VARCHAR" property="ganyousanzhi"/>
+        <result column="zongdanguchun" jdbcType="VARCHAR" property="zongdanguchun"/>
+        <result column="gaomiduzhidanbaidanguchun" jdbcType="VARCHAR" property="gaomiduzhidanbaidanguchun"/>
+        <result column="dimiduzhidanbaidanguchun" jdbcType="VARCHAR" property="dimiduzhidanbaidanguchun"/>
+        <result column="niaosuan" jdbcType="VARCHAR" property="niaosuan"/>
+        <result column="xueyagao" jdbcType="VARCHAR" property="xueyagao"/>
+        <result column="xueyadi" jdbcType="VARCHAR" property="xueyadi"/>
+        <result column="ctai" jdbcType="VARCHAR" property="ctai"/>
+        <result column="gucaozhuananmei" jdbcType="VARCHAR" property="gucaozhuananmei"/>
+        <result column="zongdanhongsu" jdbcType="VARCHAR" property="zongdanhongsu"/>
+        <result column="chaomincfanyingdanbai" jdbcType="VARCHAR" property="chaomincfanyingdanbai"/>
+        <result column="niaosu" jdbcType="VARCHAR" property="niaosu"/>
+        <result column="jigan" jdbcType="VARCHAR" property="jigan"/>
+        <result column="yidaosukongfu" jdbcType="VARCHAR" property="yidaosukongfu"/>
+        <result column="yidaosuerxiaoshi" jdbcType="VARCHAR" property="yidaosuerxiaoshi"/>
+        <result column="bingcheng" jdbcType="VARCHAR" property="bingcheng"/>
+        <result column="zhengzhuang" jdbcType="VARCHAR" property="zhengzhuang"/>
+        <result column="qitajibing" jdbcType="VARCHAR" property="qitajibing"/>
+        <result column="shuimianqingkuang" jdbcType="VARCHAR" property="shuimianqingkuang"/>
+        <result column="beizhu" jdbcType="VARCHAR" property="beizhu"/>
+        <result column="qitayaowu" jdbcType="VARCHAR" property="qitayaowu"/>
+        <result column="jiankangzhuangkuang" jdbcType="VARCHAR" property="jiankangzhuangkuang"/>
+        <result column="zishu" jdbcType="VARCHAR" property="zishu"/>
+        <result column="shujuriqi" jdbcType="VARCHAR" property="shujuriqi"/>
+        <result column="luruduan" jdbcType="VARCHAR" property="luruduan"/>
+        <result column="shixiao" jdbcType="VARCHAR" property="shixiao"/>
+        <result column="riqi" jdbcType="VARCHAR" property="riqi"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, waijian, yonghuwaijian, tizhong, kongfu, wanerxiaoshi, tanghuaxuehongdanbai, 
+    ganyousanzhi, zongdanguchun, gaomiduzhidanbaidanguchun, dimiduzhidanbaidanguchun, 
+    niaosuan, xueyagao, xueyadi, ctai, gucaozhuananmei, zongdanhongsu, chaomincfanyingdanbai, 
+    niaosu, jigan, yidaosukongfu, yidaosuerxiaoshi, bingcheng, zhengzhuang, qitajibing, 
+    shuimianqingkuang, beizhu, qitayaowu, jiankangzhuangkuang, zishu, shujuriqi, luruduan, 
+    shixiao, riqi
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tijian5s
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="getAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tijian5s
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tijian5s
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.amchis.firstgeneration.bean.huoban.tijian5s.Tijian5s">
+    insert into tijian5s (id, waijian, yonghuwaijian, 
+      tizhong, kongfu, wanerxiaoshi, 
+      tanghuaxuehongdanbai, ganyousanzhi, zongdanguchun, 
+      gaomiduzhidanbaidanguchun, dimiduzhidanbaidanguchun, 
+      niaosuan, xueyagao, xueyadi, 
+      ctai, gucaozhuananmei, zongdanhongsu, 
+      chaomincfanyingdanbai, niaosu, jigan, 
+      yidaosukongfu, yidaosuerxiaoshi, bingcheng, 
+      zhengzhuang, qitajibing, shuimianqingkuang, 
+      beizhu, qitayaowu, jiankangzhuangkuang, 
+      zishu, shujuriqi, luruduan, 
+      shixiao, riqi)
+    values (#{id,jdbcType=INTEGER}, #{waijian,jdbcType=VARCHAR}, #{yonghuwaijian,jdbcType=VARCHAR}, 
+      #{tizhong,jdbcType=VARCHAR}, #{kongfu,jdbcType=VARCHAR}, #{wanerxiaoshi,jdbcType=VARCHAR}, 
+      #{tanghuaxuehongdanbai,jdbcType=VARCHAR}, #{ganyousanzhi,jdbcType=VARCHAR}, #{zongdanguchun,jdbcType=VARCHAR}, 
+      #{gaomiduzhidanbaidanguchun,jdbcType=VARCHAR}, #{dimiduzhidanbaidanguchun,jdbcType=VARCHAR}, 
+      #{niaosuan,jdbcType=VARCHAR}, #{xueyagao,jdbcType=VARCHAR}, #{xueyadi,jdbcType=VARCHAR}, 
+      #{ctai,jdbcType=VARCHAR}, #{gucaozhuananmei,jdbcType=VARCHAR}, #{zongdanhongsu,jdbcType=VARCHAR}, 
+      #{chaomincfanyingdanbai,jdbcType=VARCHAR}, #{niaosu,jdbcType=VARCHAR}, #{jigan,jdbcType=VARCHAR}, 
+      #{yidaosukongfu,jdbcType=VARCHAR}, #{yidaosuerxiaoshi,jdbcType=VARCHAR}, #{bingcheng,jdbcType=VARCHAR}, 
+      #{zhengzhuang,jdbcType=VARCHAR}, #{qitajibing,jdbcType=VARCHAR}, #{shuimianqingkuang,jdbcType=VARCHAR}, 
+      #{beizhu,jdbcType=VARCHAR}, #{qitayaowu,jdbcType=VARCHAR}, #{jiankangzhuangkuang,jdbcType=VARCHAR}, 
+      #{zishu,jdbcType=VARCHAR}, #{shujuriqi,jdbcType=VARCHAR}, #{luruduan,jdbcType=VARCHAR}, 
+      #{shixiao,jdbcType=VARCHAR}, #{riqi,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.amchis.firstgeneration.bean.huoban.tijian5s.Tijian5s">
+        insert into tijian5s
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="waijian != null">
+                waijian,
+            </if>
+            <if test="yonghuwaijian != null">
+                yonghuwaijian,
+            </if>
+            <if test="tizhong != null">
+                tizhong,
+            </if>
+            <if test="kongfu != null">
+                kongfu,
+            </if>
+            <if test="wanerxiaoshi != null">
+                wanerxiaoshi,
+            </if>
+            <if test="tanghuaxuehongdanbai != null">
+                tanghuaxuehongdanbai,
+            </if>
+            <if test="ganyousanzhi != null">
+                ganyousanzhi,
+            </if>
+            <if test="zongdanguchun != null">
+                zongdanguchun,
+            </if>
+            <if test="gaomiduzhidanbaidanguchun != null">
+                gaomiduzhidanbaidanguchun,
+            </if>
+            <if test="dimiduzhidanbaidanguchun != null">
+                dimiduzhidanbaidanguchun,
+            </if>
+            <if test="niaosuan != null">
+                niaosuan,
+            </if>
+            <if test="xueyagao != null">
+                xueyagao,
+            </if>
+            <if test="xueyadi != null">
+                xueyadi,
+            </if>
+            <if test="ctai != null">
+                ctai,
+            </if>
+            <if test="gucaozhuananmei != null">
+                gucaozhuananmei,
+            </if>
+            <if test="zongdanhongsu != null">
+                zongdanhongsu,
+            </if>
+            <if test="chaomincfanyingdanbai != null">
+                chaomincfanyingdanbai,
+            </if>
+            <if test="niaosu != null">
+                niaosu,
+            </if>
+            <if test="jigan != null">
+                jigan,
+            </if>
+            <if test="yidaosukongfu != null">
+                yidaosukongfu,
+            </if>
+            <if test="yidaosuerxiaoshi != null">
+                yidaosuerxiaoshi,
+            </if>
+            <if test="bingcheng != null">
+                bingcheng,
+            </if>
+            <if test="zhengzhuang != null">
+                zhengzhuang,
+            </if>
+            <if test="qitajibing != null">
+                qitajibing,
+            </if>
+            <if test="shuimianqingkuang != null">
+                shuimianqingkuang,
+            </if>
+            <if test="beizhu != null">
+                beizhu,
+            </if>
+            <if test="qitayaowu != null">
+                qitayaowu,
+            </if>
+            <if test="jiankangzhuangkuang != null">
+                jiankangzhuangkuang,
+            </if>
+            <if test="zishu != null">
+                zishu,
+            </if>
+            <if test="shujuriqi != null">
+                shujuriqi,
+            </if>
+            <if test="luruduan != null">
+                luruduan,
+            </if>
+            <if test="shixiao != null">
+                shixiao,
+            </if>
+            <if test="riqi != null">
+                riqi,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="waijian != null">
+                #{waijian,jdbcType=VARCHAR},
+            </if>
+            <if test="yonghuwaijian != null">
+                #{yonghuwaijian,jdbcType=VARCHAR},
+            </if>
+            <if test="tizhong != null">
+                #{tizhong,jdbcType=VARCHAR},
+            </if>
+            <if test="kongfu != null">
+                #{kongfu,jdbcType=VARCHAR},
+            </if>
+            <if test="wanerxiaoshi != null">
+                #{wanerxiaoshi,jdbcType=VARCHAR},
+            </if>
+            <if test="tanghuaxuehongdanbai != null">
+                #{tanghuaxuehongdanbai,jdbcType=VARCHAR},
+            </if>
+            <if test="ganyousanzhi != null">
+                #{ganyousanzhi,jdbcType=VARCHAR},
+            </if>
+            <if test="zongdanguchun != null">
+                #{zongdanguchun,jdbcType=VARCHAR},
+            </if>
+            <if test="gaomiduzhidanbaidanguchun != null">
+                #{gaomiduzhidanbaidanguchun,jdbcType=VARCHAR},
+            </if>
+            <if test="dimiduzhidanbaidanguchun != null">
+                #{dimiduzhidanbaidanguchun,jdbcType=VARCHAR},
+            </if>
+            <if test="niaosuan != null">
+                #{niaosuan,jdbcType=VARCHAR},
+            </if>
+            <if test="xueyagao != null">
+                #{xueyagao,jdbcType=VARCHAR},
+            </if>
+            <if test="xueyadi != null">
+                #{xueyadi,jdbcType=VARCHAR},
+            </if>
+            <if test="ctai != null">
+                #{ctai,jdbcType=VARCHAR},
+            </if>
+            <if test="gucaozhuananmei != null">
+                #{gucaozhuananmei,jdbcType=VARCHAR},
+            </if>
+            <if test="zongdanhongsu != null">
+                #{zongdanhongsu,jdbcType=VARCHAR},
+            </if>
+            <if test="chaomincfanyingdanbai != null">
+                #{chaomincfanyingdanbai,jdbcType=VARCHAR},
+            </if>
+            <if test="niaosu != null">
+                #{niaosu,jdbcType=VARCHAR},
+            </if>
+            <if test="jigan != null">
+                #{jigan,jdbcType=VARCHAR},
+            </if>
+            <if test="yidaosukongfu != null">
+                #{yidaosukongfu,jdbcType=VARCHAR},
+            </if>
+            <if test="yidaosuerxiaoshi != null">
+                #{yidaosuerxiaoshi,jdbcType=VARCHAR},
+            </if>
+            <if test="bingcheng != null">
+                #{bingcheng,jdbcType=VARCHAR},
+            </if>
+            <if test="zhengzhuang != null">
+                #{zhengzhuang,jdbcType=VARCHAR},
+            </if>
+            <if test="qitajibing != null">
+                #{qitajibing,jdbcType=VARCHAR},
+            </if>
+            <if test="shuimianqingkuang != null">
+                #{shuimianqingkuang,jdbcType=VARCHAR},
+            </if>
+            <if test="beizhu != null">
+                #{beizhu,jdbcType=VARCHAR},
+            </if>
+            <if test="qitayaowu != null">
+                #{qitayaowu,jdbcType=VARCHAR},
+            </if>
+            <if test="jiankangzhuangkuang != null">
+                #{jiankangzhuangkuang,jdbcType=VARCHAR},
+            </if>
+            <if test="zishu != null">
+                #{zishu,jdbcType=VARCHAR},
+            </if>
+            <if test="shujuriqi != null">
+                #{shujuriqi,jdbcType=VARCHAR},
+            </if>
+            <if test="luruduan != null">
+                #{luruduan,jdbcType=VARCHAR},
+            </if>
+            <if test="shixiao != null">
+                #{shixiao,jdbcType=VARCHAR},
+            </if>
+            <if test="riqi != null">
+                #{riqi,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.amchis.firstgeneration.bean.huoban.tijian5s.Tijian5s">
+        update tijian5s
+        <set>
+            <if test="waijian != null">
+                waijian = #{waijian,jdbcType=VARCHAR},
+            </if>
+            <if test="yonghuwaijian != null">
+                yonghuwaijian = #{yonghuwaijian,jdbcType=VARCHAR},
+            </if>
+            <if test="tizhong != null">
+                tizhong = #{tizhong,jdbcType=VARCHAR},
+            </if>
+            <if test="kongfu != null">
+                kongfu = #{kongfu,jdbcType=VARCHAR},
+            </if>
+            <if test="wanerxiaoshi != null">
+                wanerxiaoshi = #{wanerxiaoshi,jdbcType=VARCHAR},
+            </if>
+            <if test="tanghuaxuehongdanbai != null">
+                tanghuaxuehongdanbai = #{tanghuaxuehongdanbai,jdbcType=VARCHAR},
+            </if>
+            <if test="ganyousanzhi != null">
+                ganyousanzhi = #{ganyousanzhi,jdbcType=VARCHAR},
+            </if>
+            <if test="zongdanguchun != null">
+                zongdanguchun = #{zongdanguchun,jdbcType=VARCHAR},
+            </if>
+            <if test="gaomiduzhidanbaidanguchun != null">
+                gaomiduzhidanbaidanguchun = #{gaomiduzhidanbaidanguchun,jdbcType=VARCHAR},
+            </if>
+            <if test="dimiduzhidanbaidanguchun != null">
+                dimiduzhidanbaidanguchun = #{dimiduzhidanbaidanguchun,jdbcType=VARCHAR},
+            </if>
+            <if test="niaosuan != null">
+                niaosuan = #{niaosuan,jdbcType=VARCHAR},
+            </if>
+            <if test="xueyagao != null">
+                xueyagao = #{xueyagao,jdbcType=VARCHAR},
+            </if>
+            <if test="xueyadi != null">
+                xueyadi = #{xueyadi,jdbcType=VARCHAR},
+            </if>
+            <if test="ctai != null">
+                ctai = #{ctai,jdbcType=VARCHAR},
+            </if>
+            <if test="gucaozhuananmei != null">
+                gucaozhuananmei = #{gucaozhuananmei,jdbcType=VARCHAR},
+            </if>
+            <if test="zongdanhongsu != null">
+                zongdanhongsu = #{zongdanhongsu,jdbcType=VARCHAR},
+            </if>
+            <if test="chaomincfanyingdanbai != null">
+                chaomincfanyingdanbai = #{chaomincfanyingdanbai,jdbcType=VARCHAR},
+            </if>
+            <if test="niaosu != null">
+                niaosu = #{niaosu,jdbcType=VARCHAR},
+            </if>
+            <if test="jigan != null">
+                jigan = #{jigan,jdbcType=VARCHAR},
+            </if>
+            <if test="yidaosukongfu != null">
+                yidaosukongfu = #{yidaosukongfu,jdbcType=VARCHAR},
+            </if>
+            <if test="yidaosuerxiaoshi != null">
+                yidaosuerxiaoshi = #{yidaosuerxiaoshi,jdbcType=VARCHAR},
+            </if>
+            <if test="bingcheng != null">
+                bingcheng = #{bingcheng,jdbcType=VARCHAR},
+            </if>
+            <if test="zhengzhuang != null">
+                zhengzhuang = #{zhengzhuang,jdbcType=VARCHAR},
+            </if>
+            <if test="qitajibing != null">
+                qitajibing = #{qitajibing,jdbcType=VARCHAR},
+            </if>
+            <if test="shuimianqingkuang != null">
+                shuimianqingkuang = #{shuimianqingkuang,jdbcType=VARCHAR},
+            </if>
+            <if test="beizhu != null">
+                beizhu = #{beizhu,jdbcType=VARCHAR},
+            </if>
+            <if test="qitayaowu != null">
+                qitayaowu = #{qitayaowu,jdbcType=VARCHAR},
+            </if>
+            <if test="jiankangzhuangkuang != null">
+                jiankangzhuangkuang = #{jiankangzhuangkuang,jdbcType=VARCHAR},
+            </if>
+            <if test="zishu != null">
+                zishu = #{zishu,jdbcType=VARCHAR},
+            </if>
+            <if test="shujuriqi != null">
+                shujuriqi = #{shujuriqi,jdbcType=VARCHAR},
+            </if>
+            <if test="luruduan != null">
+                luruduan = #{luruduan,jdbcType=VARCHAR},
+            </if>
+            <if test="shixiao != null">
+                shixiao = #{shixiao,jdbcType=VARCHAR},
+            </if>
+            <if test="riqi != null">
+                riqi = #{riqi,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.amchis.firstgeneration.bean.huoban.tijian5s.Tijian5s">
+    update tijian5s
+    set waijian = #{waijian,jdbcType=VARCHAR},
+      yonghuwaijian = #{yonghuwaijian,jdbcType=VARCHAR},
+      tizhong = #{tizhong,jdbcType=VARCHAR},
+      kongfu = #{kongfu,jdbcType=VARCHAR},
+      wanerxiaoshi = #{wanerxiaoshi,jdbcType=VARCHAR},
+      tanghuaxuehongdanbai = #{tanghuaxuehongdanbai,jdbcType=VARCHAR},
+      ganyousanzhi = #{ganyousanzhi,jdbcType=VARCHAR},
+      zongdanguchun = #{zongdanguchun,jdbcType=VARCHAR},
+      gaomiduzhidanbaidanguchun = #{gaomiduzhidanbaidanguchun,jdbcType=VARCHAR},
+      dimiduzhidanbaidanguchun = #{dimiduzhidanbaidanguchun,jdbcType=VARCHAR},
+      niaosuan = #{niaosuan,jdbcType=VARCHAR},
+      xueyagao = #{xueyagao,jdbcType=VARCHAR},
+      xueyadi = #{xueyadi,jdbcType=VARCHAR},
+      ctai = #{ctai,jdbcType=VARCHAR},
+      gucaozhuananmei = #{gucaozhuananmei,jdbcType=VARCHAR},
+      zongdanhongsu = #{zongdanhongsu,jdbcType=VARCHAR},
+      chaomincfanyingdanbai = #{chaomincfanyingdanbai,jdbcType=VARCHAR},
+      niaosu = #{niaosu,jdbcType=VARCHAR},
+      jigan = #{jigan,jdbcType=VARCHAR},
+      yidaosukongfu = #{yidaosukongfu,jdbcType=VARCHAR},
+      yidaosuerxiaoshi = #{yidaosuerxiaoshi,jdbcType=VARCHAR},
+      bingcheng = #{bingcheng,jdbcType=VARCHAR},
+      zhengzhuang = #{zhengzhuang,jdbcType=VARCHAR},
+      qitajibing = #{qitajibing,jdbcType=VARCHAR},
+      shuimianqingkuang = #{shuimianqingkuang,jdbcType=VARCHAR},
+      beizhu = #{beizhu,jdbcType=VARCHAR},
+      qitayaowu = #{qitayaowu,jdbcType=VARCHAR},
+      jiankangzhuangkuang = #{jiankangzhuangkuang,jdbcType=VARCHAR},
+      zishu = #{zishu,jdbcType=VARCHAR},
+      shujuriqi = #{shujuriqi,jdbcType=VARCHAR},
+      luruduan = #{luruduan,jdbcType=VARCHAR},
+      shixiao = #{shixiao,jdbcType=VARCHAR},
+      riqi = #{riqi,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.amchis.firstgeneration.mapper.huoban.jiankangwenjuan7s.JianKangWenJuan7sMapper">
+  <resultMap id="BaseResultMap" type="com.amchis.firstgeneration.bean.huoban.jiankangwenjuan7s.JianKangWenJuan7s">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="waijian" jdbcType="VARCHAR" property="waijian" />
+    <result column="guanliyonghu" jdbcType="VARCHAR" property="guanliyonghu" />
+    <result column="weixinopenid" jdbcType="VARCHAR" property="weixinopenid" />
+    <result column="shoujihao" jdbcType="VARCHAR" property="shoujihao" />
+    <result column="riqi" jdbcType="VARCHAR" property="riqi" />
+    <result column="xingming" jdbcType="VARCHAR" property="xingming" />
+    <result column="shengri" jdbcType="VARCHAR" property="shengri" />
+    <result column="xingbie" jdbcType="VARCHAR" property="xingbie" />
+    <result column="wenhua" jdbcType="VARCHAR" property="wenhua" />
+    <result column="shuimian" jdbcType="VARCHAR" property="shuimian" />
+    <result column="jiankangzhuangkuang" jdbcType="VARCHAR" property="jiankangzhuangkuang" />
+    <result column="bingcheng" jdbcType="VARCHAR" property="bingcheng" />
+    <result column="zhengzhuang" jdbcType="VARCHAR" property="zhengzhuang" />
+    <result column="yidaoliang1" jdbcType="VARCHAR" property="yidaoliang1" />
+    <result column="yidaoliang2" jdbcType="VARCHAR" property="yidaoliang2" />
+    <result column="koufuliang1" jdbcType="VARCHAR" property="koufuliang1" />
+    <result column="koufuliang2" jdbcType="VARCHAR" property="koufuliang2" />
+    <result column="koufuliang3" jdbcType="VARCHAR" property="koufuliang3" />
+    <result column="lururenwaijian" jdbcType="VARCHAR" property="lururenwaijian" />
+    <result column="luruduan" jdbcType="VARCHAR" property="luruduan" />
+    <result column="shixiao" jdbcType="VARCHAR" property="shixiao" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, waijian, guanliyonghu, weixinopenid, shoujihao, riqi, xingming, shengri, xingbie, 
+    wenhua, shuimian, jiankangzhuangkuang, bingcheng, zhengzhuang, yidaoliang1, yidaoliang2, 
+    koufuliang1, koufuliang2, koufuliang3, lururenwaijian, luruduan, shixiao
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jiankangwenjuan7s
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="getAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from jiankangwenjuan7s
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from jiankangwenjuan7s
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.amchis.firstgeneration.bean.huoban.jiankangwenjuan7s.JianKangWenJuan7s">
+    insert into jiankangwenjuan7s (id, waijian, guanliyonghu, 
+      weixinopenid, shoujihao, riqi, 
+      xingming, shengri, xingbie, 
+      wenhua, shuimian, jiankangzhuangkuang, 
+      bingcheng, zhengzhuang, yidaoliang1, 
+      yidaoliang2, koufuliang1, koufuliang2, 
+      koufuliang3, lururenwaijian, luruduan, 
+      shixiao)
+    values (#{id,jdbcType=INTEGER}, #{waijian,jdbcType=VARCHAR}, #{guanliyonghu,jdbcType=VARCHAR}, 
+      #{weixinopenid,jdbcType=VARCHAR}, #{shoujihao,jdbcType=VARCHAR}, #{riqi,jdbcType=VARCHAR}, 
+      #{xingming,jdbcType=VARCHAR}, #{shengri,jdbcType=VARCHAR}, #{xingbie,jdbcType=VARCHAR}, 
+      #{wenhua,jdbcType=VARCHAR}, #{shuimian,jdbcType=VARCHAR}, #{jiankangzhuangkuang,jdbcType=VARCHAR}, 
+      #{bingcheng,jdbcType=VARCHAR}, #{zhengzhuang,jdbcType=VARCHAR}, #{yidaoliang1,jdbcType=VARCHAR}, 
+      #{yidaoliang2,jdbcType=VARCHAR}, #{koufuliang1,jdbcType=VARCHAR}, #{koufuliang2,jdbcType=VARCHAR}, 
+      #{koufuliang3,jdbcType=VARCHAR}, #{lururenwaijian,jdbcType=VARCHAR}, #{luruduan,jdbcType=VARCHAR}, 
+      #{shixiao,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.amchis.firstgeneration.bean.huoban.jiankangwenjuan7s.JianKangWenJuan7s">
+    insert into jiankangwenjuan7s
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="waijian != null">
+        waijian,
+      </if>
+      <if test="guanliyonghu != null">
+        guanliyonghu,
+      </if>
+      <if test="weixinopenid != null">
+        weixinopenid,
+      </if>
+      <if test="shoujihao != null">
+        shoujihao,
+      </if>
+      <if test="riqi != null">
+        riqi,
+      </if>
+      <if test="xingming != null">
+        xingming,
+      </if>
+      <if test="shengri != null">
+        shengri,
+      </if>
+      <if test="xingbie != null">
+        xingbie,
+      </if>
+      <if test="wenhua != null">
+        wenhua,
+      </if>
+      <if test="shuimian != null">
+        shuimian,
+      </if>
+      <if test="jiankangzhuangkuang != null">
+        jiankangzhuangkuang,
+      </if>
+      <if test="bingcheng != null">
+        bingcheng,
+      </if>
+      <if test="zhengzhuang != null">
+        zhengzhuang,
+      </if>
+      <if test="yidaoliang1 != null">
+        yidaoliang1,
+      </if>
+      <if test="yidaoliang2 != null">
+        yidaoliang2,
+      </if>
+      <if test="koufuliang1 != null">
+        koufuliang1,
+      </if>
+      <if test="koufuliang2 != null">
+        koufuliang2,
+      </if>
+      <if test="koufuliang3 != null">
+        koufuliang3,
+      </if>
+      <if test="lururenwaijian != null">
+        lururenwaijian,
+      </if>
+      <if test="luruduan != null">
+        luruduan,
+      </if>
+      <if test="shixiao != null">
+        shixiao,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="waijian != null">
+        #{waijian,jdbcType=VARCHAR},
+      </if>
+      <if test="guanliyonghu != null">
+        #{guanliyonghu,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinopenid != null">
+        #{weixinopenid,jdbcType=VARCHAR},
+      </if>
+      <if test="shoujihao != null">
+        #{shoujihao,jdbcType=VARCHAR},
+      </if>
+      <if test="riqi != null">
+        #{riqi,jdbcType=VARCHAR},
+      </if>
+      <if test="xingming != null">
+        #{xingming,jdbcType=VARCHAR},
+      </if>
+      <if test="shengri != null">
+        #{shengri,jdbcType=VARCHAR},
+      </if>
+      <if test="xingbie != null">
+        #{xingbie,jdbcType=VARCHAR},
+      </if>
+      <if test="wenhua != null">
+        #{wenhua,jdbcType=VARCHAR},
+      </if>
+      <if test="shuimian != null">
+        #{shuimian,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangzhuangkuang != null">
+        #{jiankangzhuangkuang,jdbcType=VARCHAR},
+      </if>
+      <if test="bingcheng != null">
+        #{bingcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengzhuang != null">
+        #{zhengzhuang,jdbcType=VARCHAR},
+      </if>
+      <if test="yidaoliang1 != null">
+        #{yidaoliang1,jdbcType=VARCHAR},
+      </if>
+      <if test="yidaoliang2 != null">
+        #{yidaoliang2,jdbcType=VARCHAR},
+      </if>
+      <if test="koufuliang1 != null">
+        #{koufuliang1,jdbcType=VARCHAR},
+      </if>
+      <if test="koufuliang2 != null">
+        #{koufuliang2,jdbcType=VARCHAR},
+      </if>
+      <if test="koufuliang3 != null">
+        #{koufuliang3,jdbcType=VARCHAR},
+      </if>
+      <if test="lururenwaijian != null">
+        #{lururenwaijian,jdbcType=VARCHAR},
+      </if>
+      <if test="luruduan != null">
+        #{luruduan,jdbcType=VARCHAR},
+      </if>
+      <if test="shixiao != null">
+        #{shixiao,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.amchis.firstgeneration.bean.huoban.jiankangwenjuan7s.JianKangWenJuan7s">
+    update jiankangwenjuan7s
+    <set>
+      <if test="waijian != null">
+        waijian = #{waijian,jdbcType=VARCHAR},
+      </if>
+      <if test="guanliyonghu != null">
+        guanliyonghu = #{guanliyonghu,jdbcType=VARCHAR},
+      </if>
+      <if test="weixinopenid != null">
+        weixinopenid = #{weixinopenid,jdbcType=VARCHAR},
+      </if>
+      <if test="shoujihao != null">
+        shoujihao = #{shoujihao,jdbcType=VARCHAR},
+      </if>
+      <if test="riqi != null">
+        riqi = #{riqi,jdbcType=VARCHAR},
+      </if>
+      <if test="xingming != null">
+        xingming = #{xingming,jdbcType=VARCHAR},
+      </if>
+      <if test="shengri != null">
+        shengri = #{shengri,jdbcType=VARCHAR},
+      </if>
+      <if test="xingbie != null">
+        xingbie = #{xingbie,jdbcType=VARCHAR},
+      </if>
+      <if test="wenhua != null">
+        wenhua = #{wenhua,jdbcType=VARCHAR},
+      </if>
+      <if test="shuimian != null">
+        shuimian = #{shuimian,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangzhuangkuang != null">
+        jiankangzhuangkuang = #{jiankangzhuangkuang,jdbcType=VARCHAR},
+      </if>
+      <if test="bingcheng != null">
+        bingcheng = #{bingcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengzhuang != null">
+        zhengzhuang = #{zhengzhuang,jdbcType=VARCHAR},
+      </if>
+      <if test="yidaoliang1 != null">
+        yidaoliang1 = #{yidaoliang1,jdbcType=VARCHAR},
+      </if>
+      <if test="yidaoliang2 != null">
+        yidaoliang2 = #{yidaoliang2,jdbcType=VARCHAR},
+      </if>
+      <if test="koufuliang1 != null">
+        koufuliang1 = #{koufuliang1,jdbcType=VARCHAR},
+      </if>
+      <if test="koufuliang2 != null">
+        koufuliang2 = #{koufuliang2,jdbcType=VARCHAR},
+      </if>
+      <if test="koufuliang3 != null">
+        koufuliang3 = #{koufuliang3,jdbcType=VARCHAR},
+      </if>
+      <if test="lururenwaijian != null">
+        lururenwaijian = #{lururenwaijian,jdbcType=VARCHAR},
+      </if>
+      <if test="luruduan != null">
+        luruduan = #{luruduan,jdbcType=VARCHAR},
+      </if>
+      <if test="shixiao != null">
+        shixiao = #{shixiao,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.amchis.firstgeneration.bean.huoban.jiankangwenjuan7s.JianKangWenJuan7s">
+    update jiankangwenjuan7s
+    set waijian = #{waijian,jdbcType=VARCHAR},
+      guanliyonghu = #{guanliyonghu,jdbcType=VARCHAR},
+      weixinopenid = #{weixinopenid,jdbcType=VARCHAR},
+      shoujihao = #{shoujihao,jdbcType=VARCHAR},
+      riqi = #{riqi,jdbcType=VARCHAR},
+      xingming = #{xingming,jdbcType=VARCHAR},
+      shengri = #{shengri,jdbcType=VARCHAR},
+      xingbie = #{xingbie,jdbcType=VARCHAR},
+      wenhua = #{wenhua,jdbcType=VARCHAR},
+      shuimian = #{shuimian,jdbcType=VARCHAR},
+      jiankangzhuangkuang = #{jiankangzhuangkuang,jdbcType=VARCHAR},
+      bingcheng = #{bingcheng,jdbcType=VARCHAR},
+      zhengzhuang = #{zhengzhuang,jdbcType=VARCHAR},
+      yidaoliang1 = #{yidaoliang1,jdbcType=VARCHAR},
+      yidaoliang2 = #{yidaoliang2,jdbcType=VARCHAR},
+      koufuliang1 = #{koufuliang1,jdbcType=VARCHAR},
+      koufuliang2 = #{koufuliang2,jdbcType=VARCHAR},
+      koufuliang3 = #{koufuliang3,jdbcType=VARCHAR},
+      lururenwaijian = #{lururenwaijian,jdbcType=VARCHAR},
+      luruduan = #{luruduan,jdbcType=VARCHAR},
+      shixiao = #{shixiao,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

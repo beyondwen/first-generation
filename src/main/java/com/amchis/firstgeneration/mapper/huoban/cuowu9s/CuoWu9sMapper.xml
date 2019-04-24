@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.amchis.firstgeneration.mapper.huoban.cuowu9s.CuoWu9sMapper">
+  <resultMap id="BaseResultMap" type="com.amchis.firstgeneration.bean.huoban.cuowu9s.CuoWu9s">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="mingcheng" jdbcType="VARCHAR" property="mingcheng" />
+    <result column="waijian" jdbcType="VARCHAR" property="waijian" />
+    <result column="bianma" jdbcType="VARCHAR" property="bianma" />
+    <result column="miaoshu" jdbcType="VARCHAR" property="miaoshu" />
+    <result column="fangfa" jdbcType="VARCHAR" property="fangfa" />
+    <result column="canshuzhi" jdbcType="VARCHAR" property="canshuzhi" />
+    <result column="luruduan" jdbcType="VARCHAR" property="luruduan" />
+    <result column="shixiao" jdbcType="VARCHAR" property="shixiao" />
+    <result column="riqi" jdbcType="VARCHAR" property="riqi" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, mingcheng, waijian, bianma, miaoshu, fangfa, canshuzhi, luruduan, shixiao, riqi
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cuowu9s
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="getAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from cuowu9s
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cuowu9s
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.amchis.firstgeneration.bean.huoban.cuowu9s.CuoWu9s">
+    insert into cuowu9s (id, mingcheng, waijian, 
+      bianma, miaoshu, fangfa, 
+      canshuzhi, luruduan, shixiao, 
+      riqi)
+    values (#{id,jdbcType=INTEGER}, #{mingcheng,jdbcType=VARCHAR}, #{waijian,jdbcType=VARCHAR}, 
+      #{bianma,jdbcType=VARCHAR}, #{miaoshu,jdbcType=VARCHAR}, #{fangfa,jdbcType=VARCHAR}, 
+      #{canshuzhi,jdbcType=VARCHAR}, #{luruduan,jdbcType=VARCHAR}, #{shixiao,jdbcType=VARCHAR}, 
+      #{riqi,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.amchis.firstgeneration.bean.huoban.cuowu9s.CuoWu9s">
+    insert into cuowu9s
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="mingcheng != null">
+        mingcheng,
+      </if>
+      <if test="waijian != null">
+        waijian,
+      </if>
+      <if test="bianma != null">
+        bianma,
+      </if>
+      <if test="miaoshu != null">
+        miaoshu,
+      </if>
+      <if test="fangfa != null">
+        fangfa,
+      </if>
+      <if test="canshuzhi != null">
+        canshuzhi,
+      </if>
+      <if test="luruduan != null">
+        luruduan,
+      </if>
+      <if test="shixiao != null">
+        shixiao,
+      </if>
+      <if test="riqi != null">
+        riqi,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mingcheng != null">
+        #{mingcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="waijian != null">
+        #{waijian,jdbcType=VARCHAR},
+      </if>
+      <if test="bianma != null">
+        #{bianma,jdbcType=VARCHAR},
+      </if>
+      <if test="miaoshu != null">
+        #{miaoshu,jdbcType=VARCHAR},
+      </if>
+      <if test="fangfa != null">
+        #{fangfa,jdbcType=VARCHAR},
+      </if>
+      <if test="canshuzhi != null">
+        #{canshuzhi,jdbcType=VARCHAR},
+      </if>
+      <if test="luruduan != null">
+        #{luruduan,jdbcType=VARCHAR},
+      </if>
+      <if test="shixiao != null">
+        #{shixiao,jdbcType=VARCHAR},
+      </if>
+      <if test="riqi != null">
+        #{riqi,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.amchis.firstgeneration.bean.huoban.cuowu9s.CuoWu9s">
+    update cuowu9s
+    <set>
+      <if test="mingcheng != null">
+        mingcheng = #{mingcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="waijian != null">
+        waijian = #{waijian,jdbcType=VARCHAR},
+      </if>
+      <if test="bianma != null">
+        bianma = #{bianma,jdbcType=VARCHAR},
+      </if>
+      <if test="miaoshu != null">
+        miaoshu = #{miaoshu,jdbcType=VARCHAR},
+      </if>
+      <if test="fangfa != null">
+        fangfa = #{fangfa,jdbcType=VARCHAR},
+      </if>
+      <if test="canshuzhi != null">
+        canshuzhi = #{canshuzhi,jdbcType=VARCHAR},
+      </if>
+      <if test="luruduan != null">
+        luruduan = #{luruduan,jdbcType=VARCHAR},
+      </if>
+      <if test="shixiao != null">
+        shixiao = #{shixiao,jdbcType=VARCHAR},
+      </if>
+      <if test="riqi != null">
+        riqi = #{riqi,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.amchis.firstgeneration.bean.huoban.cuowu9s.CuoWu9s">
+    update cuowu9s
+    set mingcheng = #{mingcheng,jdbcType=VARCHAR},
+      waijian = #{waijian,jdbcType=VARCHAR},
+      bianma = #{bianma,jdbcType=VARCHAR},
+      miaoshu = #{miaoshu,jdbcType=VARCHAR},
+      fangfa = #{fangfa,jdbcType=VARCHAR},
+      canshuzhi = #{canshuzhi,jdbcType=VARCHAR},
+      luruduan = #{luruduan,jdbcType=VARCHAR},
+      shixiao = #{shixiao,jdbcType=VARCHAR},
+      riqi = #{riqi,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

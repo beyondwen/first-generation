@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.amchis.firstgeneration.mapper.huoban.tianxiebiaoji8s.Tianxiebiaoji8sMapper">
+    <resultMap id="BaseResultMap" type="com.amchis.firstgeneration.bean.huoban.tianxiebiaoji8s.Tianxiebiaoji8s">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="waijian" jdbcType="VARCHAR" property="waijian"/>
+        <result column="guanlianyonghu" jdbcType="VARCHAR" property="guanlianyonghu"/>
+        <result column="weixinopenid" jdbcType="VARCHAR" property="weixinopenid"/>
+        <result column="richangyitian" jdbcType="VARCHAR" property="richangyitian"/>
+        <result column="tijianyitian" jdbcType="VARCHAR" property="tijianyitian"/>
+        <result column="jiankangwenjuanyitian" jdbcType="VARCHAR" property="jiankangwenjuanyitian"/>
+        <result column="shengwuboyitian" jdbcType="VARCHAR" property="shengwuboyitian"/>
+        <result column="luruduan" jdbcType="VARCHAR" property="luruduan"/>
+        <result column="shixiao" jdbcType="VARCHAR" property="shixiao"/>
+        <result column="riqi" jdbcType="VARCHAR" property="riqi"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, waijian, guanlianyonghu, weixinopenid, richangyitian, tijianyitian, jiankangwenjuanyitian, 
+    shengwuboyitian, luruduan, shixiao, riqi
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tianxiebiaoji8s
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="getAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tianxiebiaoji8s
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tianxiebiaoji8s
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.amchis.firstgeneration.bean.huoban.tianxiebiaoji8s.Tianxiebiaoji8s">
+    insert into tianxiebiaoji8s (id, waijian, guanlianyonghu, 
+      weixinopenid, richangyitian, tijianyitian, 
+      jiankangwenjuanyitian, shengwuboyitian, 
+      luruduan, shixiao, riqi
+      )
+    values (#{id,jdbcType=INTEGER}, #{waijian,jdbcType=VARCHAR}, #{guanlianyonghu,jdbcType=VARCHAR}, 
+      #{weixinopenid,jdbcType=VARCHAR}, #{richangyitian,jdbcType=VARCHAR}, #{tijianyitian,jdbcType=VARCHAR}, 
+      #{jiankangwenjuanyitian,jdbcType=VARCHAR}, #{shengwuboyitian,jdbcType=VARCHAR}, 
+      #{luruduan,jdbcType=VARCHAR}, #{shixiao,jdbcType=VARCHAR}, #{riqi,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.amchis.firstgeneration.bean.huoban.tianxiebiaoji8s.Tianxiebiaoji8s">
+        insert into tianxiebiaoji8s
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="waijian != null">
+                waijian,
+            </if>
+            <if test="guanlianyonghu != null">
+                guanlianyonghu,
+            </if>
+            <if test="weixinopenid != null">
+                weixinopenid,
+            </if>
+            <if test="richangyitian != null">
+                richangyitian,
+            </if>
+            <if test="tijianyitian != null">
+                tijianyitian,
+            </if>
+            <if test="jiankangwenjuanyitian != null">
+                jiankangwenjuanyitian,
+            </if>
+            <if test="shengwuboyitian != null">
+                shengwuboyitian,
+            </if>
+            <if test="luruduan != null">
+                luruduan,
+            </if>
+            <if test="shixiao != null">
+                shixiao,
+            </if>
+            <if test="riqi != null">
+                riqi,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="waijian != null">
+                #{waijian,jdbcType=VARCHAR},
+            </if>
+            <if test="guanlianyonghu != null">
+                #{guanlianyonghu,jdbcType=VARCHAR},
+            </if>
+            <if test="weixinopenid != null">
+                #{weixinopenid,jdbcType=VARCHAR},
+            </if>
+            <if test="richangyitian != null">
+                #{richangyitian,jdbcType=VARCHAR},
+            </if>
+            <if test="tijianyitian != null">
+                #{tijianyitian,jdbcType=VARCHAR},
+            </if>
+            <if test="jiankangwenjuanyitian != null">
+                #{jiankangwenjuanyitian,jdbcType=VARCHAR},
+            </if>
+            <if test="shengwuboyitian != null">
+                #{shengwuboyitian,jdbcType=VARCHAR},
+            </if>
+            <if test="luruduan != null">
+                #{luruduan,jdbcType=VARCHAR},
+            </if>
+            <if test="shixiao != null">
+                #{shixiao,jdbcType=VARCHAR},
+            </if>
+            <if test="riqi != null">
+                #{riqi,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.amchis.firstgeneration.bean.huoban.tianxiebiaoji8s.Tianxiebiaoji8s">
+        update tianxiebiaoji8s
+        <set>
+            <if test="waijian != null">
+                waijian = #{waijian,jdbcType=VARCHAR},
+            </if>
+            <if test="guanlianyonghu != null">
+                guanlianyonghu = #{guanlianyonghu,jdbcType=VARCHAR},
+            </if>
+            <if test="weixinopenid != null">
+                weixinopenid = #{weixinopenid,jdbcType=VARCHAR},
+            </if>
+            <if test="richangyitian != null">
+                richangyitian = #{richangyitian,jdbcType=VARCHAR},
+            </if>
+            <if test="tijianyitian != null">
+                tijianyitian = #{tijianyitian,jdbcType=VARCHAR},
+            </if>
+            <if test="jiankangwenjuanyitian != null">
+                jiankangwenjuanyitian = #{jiankangwenjuanyitian,jdbcType=VARCHAR},
+            </if>
+            <if test="shengwuboyitian != null">
+                shengwuboyitian = #{shengwuboyitian,jdbcType=VARCHAR},
+            </if>
+            <if test="luruduan != null">
+                luruduan = #{luruduan,jdbcType=VARCHAR},
+            </if>
+            <if test="shixiao != null">
+                shixiao = #{shixiao,jdbcType=VARCHAR},
+            </if>
+            <if test="riqi != null">
+                riqi = #{riqi,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey"
+            parameterType="com.amchis.firstgeneration.bean.huoban.tianxiebiaoji8s.Tianxiebiaoji8s">
+    update tianxiebiaoji8s
+    set waijian = #{waijian,jdbcType=VARCHAR},
+      guanlianyonghu = #{guanlianyonghu,jdbcType=VARCHAR},
+      weixinopenid = #{weixinopenid,jdbcType=VARCHAR},
+      richangyitian = #{richangyitian,jdbcType=VARCHAR},
+      tijianyitian = #{tijianyitian,jdbcType=VARCHAR},
+      jiankangwenjuanyitian = #{jiankangwenjuanyitian,jdbcType=VARCHAR},
+      shengwuboyitian = #{shengwuboyitian,jdbcType=VARCHAR},
+      luruduan = #{luruduan,jdbcType=VARCHAR},
+      shixiao = #{shixiao,jdbcType=VARCHAR},
+      riqi = #{riqi,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

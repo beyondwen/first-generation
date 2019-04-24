@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.amchis.firstgeneration.mapper.huoban.gl12he13s.Gl12He13sMapper">
+  <resultMap id="BaseResultMap" type="com.amchis.firstgeneration.bean.huoban.gl12he13s.Gl12He13s">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="waijian" jdbcType="VARCHAR" property="waijian" />
+    <result column="ziduanwaijian" jdbcType="VARCHAR" property="ziduanwaijian" />
+    <result column="mokuaiwaijian" jdbcType="VARCHAR" property="mokuaiwaijian" />
+    <result column="luruduan" jdbcType="VARCHAR" property="luruduan" />
+    <result column="shixiao" jdbcType="VARCHAR" property="shixiao" />
+    <result column="riqi" jdbcType="VARCHAR" property="riqi" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, waijian, ziduanwaijian, mokuaiwaijian, luruduan, shixiao, riqi
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from gl12he13s
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="getAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from gl12he13s
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from gl12he13s
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.amchis.firstgeneration.bean.huoban.gl12he13s.Gl12He13s">
+    insert into gl12he13s (id, waijian, ziduanwaijian, 
+      mokuaiwaijian, luruduan, shixiao, 
+      riqi)
+    values (#{id,jdbcType=INTEGER}, #{waijian,jdbcType=VARCHAR}, #{ziduanwaijian,jdbcType=VARCHAR}, 
+      #{mokuaiwaijian,jdbcType=VARCHAR}, #{luruduan,jdbcType=VARCHAR}, #{shixiao,jdbcType=VARCHAR}, 
+      #{riqi,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.amchis.firstgeneration.bean.huoban.gl12he13s.Gl12He13s">
+    insert into gl12he13s
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="waijian != null">
+        waijian,
+      </if>
+      <if test="ziduanwaijian != null">
+        ziduanwaijian,
+      </if>
+      <if test="mokuaiwaijian != null">
+        mokuaiwaijian,
+      </if>
+      <if test="luruduan != null">
+        luruduan,
+      </if>
+      <if test="shixiao != null">
+        shixiao,
+      </if>
+      <if test="riqi != null">
+        riqi,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="waijian != null">
+        #{waijian,jdbcType=VARCHAR},
+      </if>
+      <if test="ziduanwaijian != null">
+        #{ziduanwaijian,jdbcType=VARCHAR},
+      </if>
+      <if test="mokuaiwaijian != null">
+        #{mokuaiwaijian,jdbcType=VARCHAR},
+      </if>
+      <if test="luruduan != null">
+        #{luruduan,jdbcType=VARCHAR},
+      </if>
+      <if test="shixiao != null">
+        #{shixiao,jdbcType=VARCHAR},
+      </if>
+      <if test="riqi != null">
+        #{riqi,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.amchis.firstgeneration.bean.huoban.gl12he13s.Gl12He13s">
+    update gl12he13s
+    <set>
+      <if test="waijian != null">
+        waijian = #{waijian,jdbcType=VARCHAR},
+      </if>
+      <if test="ziduanwaijian != null">
+        ziduanwaijian = #{ziduanwaijian,jdbcType=VARCHAR},
+      </if>
+      <if test="mokuaiwaijian != null">
+        mokuaiwaijian = #{mokuaiwaijian,jdbcType=VARCHAR},
+      </if>
+      <if test="luruduan != null">
+        luruduan = #{luruduan,jdbcType=VARCHAR},
+      </if>
+      <if test="shixiao != null">
+        shixiao = #{shixiao,jdbcType=VARCHAR},
+      </if>
+      <if test="riqi != null">
+        riqi = #{riqi,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.amchis.firstgeneration.bean.huoban.gl12he13s.Gl12He13s">
+    update gl12he13s
+    set waijian = #{waijian,jdbcType=VARCHAR},
+      ziduanwaijian = #{ziduanwaijian,jdbcType=VARCHAR},
+      mokuaiwaijian = #{mokuaiwaijian,jdbcType=VARCHAR},
+      luruduan = #{luruduan,jdbcType=VARCHAR},
+      shixiao = #{shixiao,jdbcType=VARCHAR},
+      riqi = #{riqi,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

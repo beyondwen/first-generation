@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.amchis.firstgeneration.mapper.huoban.weixinzhanghao16s.Weixinzhanghao16sMapper">
+    <resultMap id="BaseResultMap" type="com.amchis.firstgeneration.bean.huoban.weixinzhanghao16s.Weixinzhanghao16s">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="waijian" jdbcType="VARCHAR" property="waijian"/>
+        <result column="openid" jdbcType="VARCHAR" property="openid"/>
+        <result column="nicheng" jdbcType="VARCHAR" property="nicheng"/>
+        <result column="xingbie" jdbcType="VARCHAR" property="xingbie"/>
+        <result column="chengshi" jdbcType="VARCHAR" property="chengshi"/>
+        <result column="sheng" jdbcType="VARCHAR" property="sheng"/>
+        <result column="guojia" jdbcType="VARCHAR" property="guojia"/>
+        <result column="touxiang" jdbcType="VARCHAR" property="touxiang"/>
+        <result column="tequan" jdbcType="VARCHAR" property="tequan"/>
+        <result column="shixiao" jdbcType="VARCHAR" property="shixiao"/>
+        <result column="riqi" jdbcType="VARCHAR" property="riqi"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, waijian, openid, nicheng, xingbie, chengshi, sheng, guojia, touxiang, tequan, 
+    shixiao, riqi
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from weixinzhanghao16s
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="getAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from weixinzhanghao16s
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from weixinzhanghao16s
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.amchis.firstgeneration.bean.huoban.weixinzhanghao16s.Weixinzhanghao16s">
+    insert into weixinzhanghao16s (id, waijian, openid, 
+      nicheng, xingbie, chengshi, 
+      sheng, guojia, touxiang, 
+      tequan, shixiao, riqi
+      )
+    values (#{id,jdbcType=INTEGER}, #{waijian,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, 
+      #{nicheng,jdbcType=VARCHAR}, #{xingbie,jdbcType=VARCHAR}, #{chengshi,jdbcType=VARCHAR}, 
+      #{sheng,jdbcType=VARCHAR}, #{guojia,jdbcType=VARCHAR}, #{touxiang,jdbcType=VARCHAR}, 
+      #{tequan,jdbcType=VARCHAR}, #{shixiao,jdbcType=VARCHAR}, #{riqi,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective"
+            parameterType="com.amchis.firstgeneration.bean.huoban.weixinzhanghao16s.Weixinzhanghao16s">
+        insert into weixinzhanghao16s
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="waijian != null">
+                waijian,
+            </if>
+            <if test="openid != null">
+                openid,
+            </if>
+            <if test="nicheng != null">
+                nicheng,
+            </if>
+            <if test="xingbie != null">
+                xingbie,
+            </if>
+            <if test="chengshi != null">
+                chengshi,
+            </if>
+            <if test="sheng != null">
+                sheng,
+            </if>
+            <if test="guojia != null">
+                guojia,
+            </if>
+            <if test="touxiang != null">
+                touxiang,
+            </if>
+            <if test="tequan != null">
+                tequan,
+            </if>
+            <if test="shixiao != null">
+                shixiao,
+            </if>
+            <if test="riqi != null">
+                riqi,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="waijian != null">
+                #{waijian,jdbcType=VARCHAR},
+            </if>
+            <if test="openid != null">
+                #{openid,jdbcType=VARCHAR},
+            </if>
+            <if test="nicheng != null">
+                #{nicheng,jdbcType=VARCHAR},
+            </if>
+            <if test="xingbie != null">
+                #{xingbie,jdbcType=VARCHAR},
+            </if>
+            <if test="chengshi != null">
+                #{chengshi,jdbcType=VARCHAR},
+            </if>
+            <if test="sheng != null">
+                #{sheng,jdbcType=VARCHAR},
+            </if>
+            <if test="guojia != null">
+                #{guojia,jdbcType=VARCHAR},
+            </if>
+            <if test="touxiang != null">
+                #{touxiang,jdbcType=VARCHAR},
+            </if>
+            <if test="tequan != null">
+                #{tequan,jdbcType=VARCHAR},
+            </if>
+            <if test="shixiao != null">
+                #{shixiao,jdbcType=VARCHAR},
+            </if>
+            <if test="riqi != null">
+                #{riqi,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.amchis.firstgeneration.bean.huoban.weixinzhanghao16s.Weixinzhanghao16s">
+        update weixinzhanghao16s
+        <set>
+            <if test="waijian != null">
+                waijian = #{waijian,jdbcType=VARCHAR},
+            </if>
+            <if test="openid != null">
+                openid = #{openid,jdbcType=VARCHAR},
+            </if>
+            <if test="nicheng != null">
+                nicheng = #{nicheng,jdbcType=VARCHAR},
+            </if>
+            <if test="xingbie != null">
+                xingbie = #{xingbie,jdbcType=VARCHAR},
+            </if>
+            <if test="chengshi != null">
+                chengshi = #{chengshi,jdbcType=VARCHAR},
+            </if>
+            <if test="sheng != null">
+                sheng = #{sheng,jdbcType=VARCHAR},
+            </if>
+            <if test="guojia != null">
+                guojia = #{guojia,jdbcType=VARCHAR},
+            </if>
+            <if test="touxiang != null">
+                touxiang = #{touxiang,jdbcType=VARCHAR},
+            </if>
+            <if test="tequan != null">
+                tequan = #{tequan,jdbcType=VARCHAR},
+            </if>
+            <if test="shixiao != null">
+                shixiao = #{shixiao,jdbcType=VARCHAR},
+            </if>
+            <if test="riqi != null">
+                riqi = #{riqi,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey"
+            parameterType="com.amchis.firstgeneration.bean.huoban.weixinzhanghao16s.Weixinzhanghao16s">
+    update weixinzhanghao16s
+    set waijian = #{waijian,jdbcType=VARCHAR},
+      openid = #{openid,jdbcType=VARCHAR},
+      nicheng = #{nicheng,jdbcType=VARCHAR},
+      xingbie = #{xingbie,jdbcType=VARCHAR},
+      chengshi = #{chengshi,jdbcType=VARCHAR},
+      sheng = #{sheng,jdbcType=VARCHAR},
+      guojia = #{guojia,jdbcType=VARCHAR},
+      touxiang = #{touxiang,jdbcType=VARCHAR},
+      tequan = #{tequan,jdbcType=VARCHAR},
+      shixiao = #{shixiao,jdbcType=VARCHAR},
+      riqi = #{riqi,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

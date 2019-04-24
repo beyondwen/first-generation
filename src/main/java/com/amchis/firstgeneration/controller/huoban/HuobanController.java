@@ -1,0 +1,527 @@
+package com.amchis.firstgeneration.controller.huoban;
+
+import com.amchis.firstgeneration.bean.guanli.bangdingkongzhiqi15s.BangDingKongZhiQi15s;
+import com.amchis.firstgeneration.bean.guanli.gl1he2s.Gl1he2s;
+import com.amchis.firstgeneration.bean.huoban.cuowu9s.CuoWu9s;
+import com.amchis.firstgeneration.bean.huoban.gl12he13s.Gl12He13s;
+import com.amchis.firstgeneration.bean.huoban.gl13he13s.Gl13He13s;
+import com.amchis.firstgeneration.bean.huoban.gl1he4s.Gl1He4s;
+import com.amchis.firstgeneration.bean.huoban.gl2he16s.Gl2He16s;
+import com.amchis.firstgeneration.bean.huoban.jiankangwenjuan7s.JianKangWenJuan7s;
+import com.amchis.firstgeneration.bean.huoban.jiaoyan10s.JiaoYan10s;
+import com.amchis.firstgeneration.bean.huoban.jiaoyanleixing11s.Jiaoyanleixing11s;
+import com.amchis.firstgeneration.bean.huoban.juese1s.Juese1s;
+import com.amchis.firstgeneration.bean.huoban.kehuyaowu18s.Kehuyaowu18s;
+import com.amchis.firstgeneration.bean.huoban.manyidu19s.Manyidu19s;
+import com.amchis.firstgeneration.bean.huoban.mokuai13s.Mokuai13s;
+import com.amchis.firstgeneration.bean.huoban.richang6s.Richang6s;
+import com.amchis.firstgeneration.bean.huoban.shebeiliushuihao17s.Shebeiliushuihao17s;
+import com.amchis.firstgeneration.bean.huoban.tianxiebiaoji8s.Tianxiebiaoji8s;
+import com.amchis.firstgeneration.bean.huoban.tijian5s.Tijian5s;
+import com.amchis.firstgeneration.bean.huoban.weixinzhanghao16s.Weixinzhanghao16s;
+import com.amchis.firstgeneration.bean.huoban.yonghu2s.Yonghu2s;
+import com.amchis.firstgeneration.bean.huoban.yonghuguanlizhe14s.Yonghuguanlizhe14s;
+import com.amchis.firstgeneration.bean.huoban.ziduan12s.Ziduan12s;
+import com.amchis.firstgeneration.bean.huoban.ziyuan4s.Ziyuan4s;
+import com.amchis.firstgeneration.bean.huoban.ziyuanleixing3s.Ziyuanleixing3s;
+import com.amchis.firstgeneration.common.BaseApiService;
+import com.amchis.firstgeneration.common.ReponseVo;
+import com.amchis.firstgeneration.mapper.guanli.bangdingkongzhiqi15s.BangDingKongZhiQi15sMapper;
+import com.amchis.firstgeneration.mapper.guanli.gl1he2s.Gl1he2sMapper;
+import com.amchis.firstgeneration.mapper.huoban.cuowu9s.CuoWu9sMapper;
+import com.amchis.firstgeneration.mapper.huoban.gl12he13s.Gl12He13sMapper;
+import com.amchis.firstgeneration.mapper.huoban.gl13he13s.Gl13He13sMapper;
+import com.amchis.firstgeneration.mapper.huoban.gl1he4s.Gl1He4sMapper;
+import com.amchis.firstgeneration.mapper.huoban.gl2he16s.Gl2He16sMapper;
+import com.amchis.firstgeneration.mapper.huoban.jiankangwenjuan7s.JianKangWenJuan7sMapper;
+import com.amchis.firstgeneration.mapper.huoban.jiaoyan10s.JiaoYan10sMapper;
+import com.amchis.firstgeneration.mapper.huoban.jiaoyanleixing11s.Jiaoyanleixing11sMapper;
+import com.amchis.firstgeneration.mapper.huoban.juese1s.Juese1sMapper;
+import com.amchis.firstgeneration.mapper.huoban.kehuyaowu18s.Kehuyaowu18sMapper;
+import com.amchis.firstgeneration.mapper.huoban.manyidu19s.Manyidu19sMapper;
+import com.amchis.firstgeneration.mapper.huoban.mokuai13s.Mokuai13sMapper;
+import com.amchis.firstgeneration.mapper.huoban.richang6s.Richang6sMapper;
+import com.amchis.firstgeneration.mapper.huoban.shebeiliushuihao17s.Shebeiliushuihao17sMapper;
+import com.amchis.firstgeneration.mapper.huoban.tianxiebiaoji8s.Tianxiebiaoji8sMapper;
+import com.amchis.firstgeneration.mapper.huoban.tijian5s.Tijian5sMapper;
+import com.amchis.firstgeneration.mapper.huoban.weixinzhanghao16s.Weixinzhanghao16sMapper;
+import com.amchis.firstgeneration.mapper.huoban.yonghu2s.Yonghu2sMapper;
+import com.amchis.firstgeneration.mapper.huoban.yonghuguanlizhe14s.Yonghuguanlizhe14sMapper;
+import com.amchis.firstgeneration.mapper.huoban.ziduan12s.Ziduan12sMapper;
+import com.amchis.firstgeneration.mapper.huoban.ziyuan4s.Ziyuan4sMapper;
+import com.amchis.firstgeneration.mapper.huoban.ziyuanleixing3s.Ziyuanleixing3sMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
+
+@RestController
+@RequestMapping("/huoban")
+public class HuobanController extends BaseApiService {
+
+    @Autowired
+    private BangDingKongZhiQi15sMapper bangDingKongZhiQi15sMapper;
+
+    @Autowired
+    private CuoWu9sMapper cuoWu9sMapper;
+
+    @Autowired
+    private Gl12He13sMapper gl12He13sMapper;
+
+    @Autowired
+    private Gl13He13sMapper gl13He13sMapper;
+
+    @Autowired
+    private Gl1he2sMapper gl1he2sMapper;
+
+    @Autowired
+    private Gl1He4sMapper gl1He4sMapper;
+
+    @Autowired
+    private Gl2He16sMapper gl2He16sMapper;
+
+    @Autowired
+    private JianKangWenJuan7sMapper jianKangWenJuan7sMapper;
+
+    @Autowired
+    private JiaoYan10sMapper jiaoYan10sMapper;
+
+    @Autowired
+    private Jiaoyanleixing11sMapper jiaoyanleixing11sMapper;
+
+    @Autowired
+    private Juese1sMapper juese1sMapper;
+
+    @Autowired
+    private Kehuyaowu18sMapper kehuyaowu18sMapper;
+
+    @Autowired
+    private Manyidu19sMapper manyidu19sMapper;
+
+    @Autowired
+    private Mokuai13sMapper mokuai13sMapper;
+
+    @Autowired
+    private Richang6sMapper richang6sMapper;
+
+    @Autowired
+    private Shebeiliushuihao17sMapper shebeiliushuihao17sMapper;
+
+    @Autowired
+    private Tianxiebiaoji8sMapper tianxiebiaoji8sMapper;
+
+
+    @Autowired
+    private Tijian5sMapper tijian5sMapper;
+
+    @Autowired
+    private Weixinzhanghao16sMapper weixinzhanghao16sMapper;
+
+    @Autowired
+    private Yonghu2sMapper yonghu2sMapper;
+
+    @Autowired
+    private Yonghuguanlizhe14sMapper yonghuguanlizhe14sMapper;
+
+    @Autowired
+    private Ziduan12sMapper ziduan12sMapper;
+
+    @Autowired
+    private Ziyuan4sMapper ziyuan4sMapper;
+
+    @Autowired
+    private Ziyuanleixing3sMapper ziyuanleixing3sMapper;
+
+
+    /**
+     * 绑定控制器
+     *
+     * @param bangDingKongZhiQi15s
+     * @return
+     */
+    @PostMapping(value = "/bangdingkongzhiqiluru")
+    public ReponseVo bindController(@Valid @RequestBody BangDingKongZhiQi15s bangDingKongZhiQi15s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(bangDingKongZhiQi15s, bangDingKongZhiQi15sMapper);
+        }
+    }
+
+    /**
+     * 错误录入
+     *
+     * @param cuoWu9s
+     * @return
+     */
+    @PostMapping("/cuowuluru")
+    public ReponseVo errorInput(@Valid @RequestBody CuoWu9s cuoWu9s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(cuoWu9s, cuoWu9sMapper);
+        }
+    }
+
+    /**
+     * gl12He13s录入
+     *
+     * @param gl12He13s
+     * @return
+     */
+    @PostMapping("/gl12he13sluru")
+    public ReponseVo gl12he13sInput(@Valid @RequestBody Gl12He13s gl12He13s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(gl12He13s, gl12He13sMapper);
+        }
+    }
+
+    /**
+     * gl13He13s录入
+     *
+     * @param gl13He13s
+     * @return
+     */
+    @PostMapping("/gl13he13sluru")
+    public ReponseVo gl13he13sInput(@Valid @RequestBody Gl13He13s gl13He13s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(gl13He13s, gl13He13sMapper);
+        }
+    }
+
+    /**
+     * gl1he2s录入
+     *
+     * @param gl1he2s
+     * @return
+     */
+    @PostMapping("/gl1he2sluruluru")
+    public ReponseVo gl1he2sInput(@Valid @RequestBody Gl1he2s gl1he2s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(gl1he2s, gl1he2sMapper);
+        }
+    }
+
+
+    /**
+     * gl1he4s录入
+     *
+     * @param gl1He4s
+     * @return
+     */
+    @PostMapping("/gl1he4sluru")
+    public ReponseVo gl1he4sInput(@Valid @RequestBody Gl1He4s gl1He4s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(gl1He4s, gl1He4sMapper);
+        }
+    }
+
+    /**
+     * gl2He16s录入
+     *
+     * @param gl2He16s
+     * @return
+     */
+    @PostMapping("/gl2he16sluru")
+    public ReponseVo gl2he16sInput(@Valid @RequestBody Gl2He16s gl2He16s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(gl2He16s, gl2He16sMapper);
+        }
+    }
+
+    /**
+     * 健康问卷录入
+     *
+     * @param jianKangWenJuan7s
+     * @return
+     */
+    @PostMapping("/jiankangwenjuanluru")
+    public ReponseVo HealthQuestionnaireInput(@Valid @RequestBody JianKangWenJuan7s
+                                                      jianKangWenJuan7s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(jianKangWenJuan7s, jianKangWenJuan7sMapper);
+        }
+    }
+
+    /**
+     * 密码录入
+     *
+     * @param jiaoYan10s
+     * @return
+     */
+    @PostMapping("/jiaoyanluru")
+    public ReponseVo passwordInput(@Valid @RequestBody JiaoYan10s jiaoYan10s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(jiaoYan10s, jiaoYan10sMapper);
+        }
+    }
+
+    /**
+     * 密码类型录入
+     *
+     * @param jiaoyanleixing11s
+     * @return
+     */
+    @PostMapping("/jiaoyanleixingluru")
+    public ReponseVo passwordTypeInput(@Valid @RequestBody Jiaoyanleixing11s jiaoyanleixing11s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(jiaoyanleixing11s, jiaoyanleixing11sMapper);
+        }
+    }
+
+    /**
+     * 角色录入
+     *
+     * @param juese1s bean
+     * @return ReponseVo
+     */
+    @PostMapping("/jueseluru")
+    public ReponseVo roleInput(@Valid @RequestBody Juese1s juese1s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(juese1s, juese1sMapper);
+        }
+    }
+
+    /**
+     * 客户药物录入
+     *
+     * @param kehuyaowu18s bean
+     * @return ReponseVo
+     */
+    @PostMapping("/kehuyaowuluru")
+    public ReponseVo customMedicineInput(@Valid @RequestBody Kehuyaowu18s kehuyaowu18s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(kehuyaowu18s, kehuyaowu18sMapper);
+        }
+    }
+
+    /**
+     * 满意度录入
+     *
+     * @param manyidu19s bean
+     * @return ReponseVo
+     */
+    @PostMapping("/manyiduluru")
+    public ReponseVo SatisfactionInput(@Valid @RequestBody Manyidu19s manyidu19s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(manyidu19s, manyidu19sMapper);
+        }
+    }
+
+    /**
+     * 模块录入
+     *
+     * @param mokuai13s bean
+     * @return ReponseVo
+     */
+    @PostMapping("/mokuailuru")
+    public ReponseVo modelInput(@Valid @RequestBody Mokuai13s mokuai13s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(mokuai13s, mokuai13sMapper);
+        }
+    }
+
+    /**
+     * 日常录入
+     *
+     * @param richang6s bean
+     * @return ReponseVo
+     */
+    @PostMapping("/richangluru")
+    public ReponseVo dailyInput(@Valid @RequestBody Richang6s richang6s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(richang6s, richang6sMapper);
+        }
+    }
+
+    /**
+     * sn号录入
+     *
+     * @param shebeiliushuihao17s bean
+     * @return ReponseVo
+     */
+    @PostMapping("/shebeiliushuihaoluru")
+    public ReponseVo deviceSnInput(@Valid @RequestBody Shebeiliushuihao17s shebeiliushuihao17s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(shebeiliushuihao17s, shebeiliushuihao17sMapper);
+        }
+    }
+
+    /**
+     * sn号录入
+     *
+     * @param tianxiebiaoji8s bean
+     * @return ReponseVo
+     */
+    @PostMapping("/tianxiebiaojiluru")
+    public ReponseVo markInput(@Valid @RequestBody Tianxiebiaoji8s tianxiebiaoji8s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(tianxiebiaoji8s, tianxiebiaoji8sMapper);
+        }
+    }
+
+
+    /**
+     * 体检录入
+     *
+     * @param tijian5s bean
+     * @return ReponseVo
+     */
+    @PostMapping("/tijianluru")
+    public ReponseVo medicalExaminationInput(@Valid @RequestBody Tijian5s tijian5s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(tijian5s, tijian5sMapper);
+        }
+    }
+
+    /**
+     * 微信帐号录入
+     *
+     * @param weixinzhanghao16s bean
+     * @return ReponseVo
+     */
+    @PostMapping("/weixinzhanghaoluru")
+    public ReponseVo weixinAccountInput(@Valid @RequestBody Weixinzhanghao16s weixinzhanghao16s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(weixinzhanghao16s, weixinzhanghao16sMapper);
+        }
+    }
+
+    /**
+     * 用户录入
+     *
+     * @param yonghu2s bean
+     * @return ReponseVo
+     */
+    @PostMapping("/yonghuluru")
+    public ReponseVo userInput(@Valid @RequestBody Yonghu2s yonghu2s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(yonghu2s, yonghu2sMapper);
+        }
+    }
+
+    /**
+     * 用户管理者录入
+     *
+     * @param yonghuguanlizhe14s bean
+     * @return ReponseVo
+     */
+    @PostMapping("/yonghuguanlizheluru")
+    public ReponseVo userAdminInput(@Valid @RequestBody Yonghuguanlizhe14s yonghuguanlizhe14s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(yonghuguanlizhe14s, yonghuguanlizhe14sMapper);
+        }
+    }
+
+    /**
+     * 字段录入
+     *
+     * @param ziduan12s bean
+     * @return ReponseVo
+     */
+    @PostMapping("/ziduanluru")
+    public ReponseVo domainInput(@Valid @RequestBody Ziduan12s ziduan12s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(ziduan12s, ziduan12sMapper);
+        }
+    }
+
+    /**
+     * 资源录入
+     *
+     * @param ziyuan4s bean
+     * @return ReponseVo
+     */
+    @PostMapping("/ziyuanluru")
+    public ReponseVo resourceInput(@Valid @RequestBody Ziyuan4s ziyuan4s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(ziyuan4s, ziyuan4sMapper);
+        }
+    }
+
+    /**
+     * 资源录入
+     *
+     * @param ziyuanleixing3s bean
+     * @return ReponseVo
+     */
+    @PostMapping("/ziyuanleixingluru")
+    public ReponseVo resourceTypeInput(@Valid @RequestBody Ziyuanleixing3s ziyuanleixing3s, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String errorMsg = bindingResult.getFieldError().getDefaultMessage();
+            return setResult("0", "QINGTIANXIEWANZHENG", errorMsg);
+        } else {
+            return commomMethod(ziyuanleixing3s, ziyuanleixing3sMapper);
+        }
+    }
+
+}
