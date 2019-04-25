@@ -1,9 +1,9 @@
 package com.amchis.firstgeneration.service.guanli;
 
-import com.amchis.firstgeneration.bean.guanli.ziyuan4s.Ziyuan4s;
+import com.amchis.firstgeneration.bean.huoban.ziyuan4s.Ziyuan4s;
 import com.amchis.firstgeneration.common.BaseApiService;
 import com.amchis.firstgeneration.common.ReponseVo;
-import com.amchis.firstgeneration.mapper.guanli.ziyuan4s.Ziyuan4sMapper;
+import com.amchis.firstgeneration.mapper.huoban.ziyuan4s.Ziyuan4sMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

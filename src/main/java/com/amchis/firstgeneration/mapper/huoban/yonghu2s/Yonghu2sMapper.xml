@@ -1,43 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.amchis.firstgeneration.mapper.huoban.yonghu2s.Yonghu2sMapper">
-  <resultMap id="BaseResultMap" type="com.amchis.firstgeneration.bean.huoban.yonghu2s.Yonghu2s">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="waijian" jdbcType="VARCHAR" property="waijian" />
-    <result column="mingcheng" jdbcType="VARCHAR" property="mingcheng" />
-    <result column="shenfenzheng" jdbcType="VARCHAR" property="shenfenzheng" />
-    <result column="shoujihao" jdbcType="VARCHAR" property="shoujihao" />
-    <result column="shengri" jdbcType="VARCHAR" property="shengri" />
-    <result column="xingbie" jdbcType="VARCHAR" property="xingbie" />
-    <result column="wenhua" jdbcType="VARCHAR" property="wenhua" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="gonghao" jdbcType="VARCHAR" property="gonghao" />
-    <result column="tongyixieyi" jdbcType="VARCHAR" property="tongyixieyi" />
-    <result column="shengao" jdbcType="VARCHAR" property="shengao" />
-    <result column="luruduan" jdbcType="VARCHAR" property="luruduan" />
-    <result column="shixiao" jdbcType="VARCHAR" property="shixiao" />
-    <result column="riqi" jdbcType="VARCHAR" property="riqi" />
-  </resultMap>
-  <sql id="Base_Column_List">
+    <resultMap id="BaseResultMap" type="com.amchis.firstgeneration.bean.huoban.yonghu2s.Yonghu2s">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="waijian" jdbcType="VARCHAR" property="waijian"/>
+        <result column="mingcheng" jdbcType="VARCHAR" property="mingcheng"/>
+        <result column="shenfenzheng" jdbcType="VARCHAR" property="shenfenzheng"/>
+        <result column="shoujihao" jdbcType="VARCHAR" property="shoujihao"/>
+        <result column="shengri" jdbcType="VARCHAR" property="shengri"/>
+        <result column="xingbie" jdbcType="VARCHAR" property="xingbie"/>
+        <result column="wenhua" jdbcType="VARCHAR" property="wenhua"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="gonghao" jdbcType="VARCHAR" property="gonghao"/>
+        <result column="tongyixieyi" jdbcType="VARCHAR" property="tongyixieyi"/>
+        <result column="shengao" jdbcType="VARCHAR" property="shengao"/>
+        <result column="luruduan" jdbcType="VARCHAR" property="luruduan"/>
+        <result column="shixiao" jdbcType="VARCHAR" property="shixiao"/>
+        <result column="riqi" jdbcType="VARCHAR" property="riqi"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     id, waijian, mingcheng, shenfenzheng, shoujihao, shengri, xingbie, wenhua, email, 
     gonghao, tongyixieyi, shengao, luruduan, shixiao, riqi
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from yonghu2s
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="getAll" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from yonghu2s
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from yonghu2s
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="ChaxunZhuguanKehu" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from yonghuguanlizhe14s yhglz
+        left join yonghu2s yh on yhglz.yonghuwaijian=yh.waijian
+        group by yh.waijian
+    </select>
+    <select id="ChaxunGuanjiayonghu" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from yonghu2s yh
+        left join yonghuguanlizhe14s glz on yh.waijian = glz.yonghuwaijian
+        <where>
+            <if test="guanjiawaijian != null and guanjiawaijian != '' ">
+                and glz.guanjiawaijian=#{guanjiawaijian}
+            </if>
+            <if test="shoujihao != null and shoujihao != '' ">
+                and yh.shoujihao=#{shoujihao}
+            </if>
+        </where>
+    </select>
+    <select id="ChaxunGuanjiayonghuByWaijian" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from yonghu2s yh
+        left join yonghuguanlizhe14s glz on yh.waijian = glz.yonghuwaijian
+        <where>
+            <if test="guanjiawaijian != null and guanjiawaijian != '' ">
+                and glz.guanjiawaijian=#{guanjiawaijian}
+            </if>
+        </where>
+    </select>
+    <select id="getAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from yonghu2s
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from yonghu2s
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.amchis.firstgeneration.bean.huoban.yonghu2s.Yonghu2s">
+    <insert id="insert" parameterType="com.amchis.firstgeneration.bean.huoban.yonghu2s.Yonghu2s">
     insert into yonghu2s (id, waijian, mingcheng, 
       shenfenzheng, shoujihao, shengri, 
       xingbie, wenhua, email, 
@@ -51,152 +83,152 @@
       #{luruduan,jdbcType=VARCHAR}, #{shixiao,jdbcType=VARCHAR}, #{riqi,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.amchis.firstgeneration.bean.huoban.yonghu2s.Yonghu2s">
-    insert into yonghu2s
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="waijian != null">
-        waijian,
-      </if>
-      <if test="mingcheng != null">
-        mingcheng,
-      </if>
-      <if test="shenfenzheng != null">
-        shenfenzheng,
-      </if>
-      <if test="shoujihao != null">
-        shoujihao,
-      </if>
-      <if test="shengri != null">
-        shengri,
-      </if>
-      <if test="xingbie != null">
-        xingbie,
-      </if>
-      <if test="wenhua != null">
-        wenhua,
-      </if>
-      <if test="email != null">
-        email,
-      </if>
-      <if test="gonghao != null">
-        gonghao,
-      </if>
-      <if test="tongyixieyi != null">
-        tongyixieyi,
-      </if>
-      <if test="shengao != null">
-        shengao,
-      </if>
-      <if test="luruduan != null">
-        luruduan,
-      </if>
-      <if test="shixiao != null">
-        shixiao,
-      </if>
-      <if test="riqi != null">
-        riqi,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="waijian != null">
-        #{waijian,jdbcType=VARCHAR},
-      </if>
-      <if test="mingcheng != null">
-        #{mingcheng,jdbcType=VARCHAR},
-      </if>
-      <if test="shenfenzheng != null">
-        #{shenfenzheng,jdbcType=VARCHAR},
-      </if>
-      <if test="shoujihao != null">
-        #{shoujihao,jdbcType=VARCHAR},
-      </if>
-      <if test="shengri != null">
-        #{shengri,jdbcType=VARCHAR},
-      </if>
-      <if test="xingbie != null">
-        #{xingbie,jdbcType=VARCHAR},
-      </if>
-      <if test="wenhua != null">
-        #{wenhua,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="gonghao != null">
-        #{gonghao,jdbcType=VARCHAR},
-      </if>
-      <if test="tongyixieyi != null">
-        #{tongyixieyi,jdbcType=VARCHAR},
-      </if>
-      <if test="shengao != null">
-        #{shengao,jdbcType=VARCHAR},
-      </if>
-      <if test="luruduan != null">
-        #{luruduan,jdbcType=VARCHAR},
-      </if>
-      <if test="shixiao != null">
-        #{shixiao,jdbcType=VARCHAR},
-      </if>
-      <if test="riqi != null">
-        #{riqi,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.amchis.firstgeneration.bean.huoban.yonghu2s.Yonghu2s">
-    update yonghu2s
-    <set>
-      <if test="waijian != null">
-        waijian = #{waijian,jdbcType=VARCHAR},
-      </if>
-      <if test="mingcheng != null">
-        mingcheng = #{mingcheng,jdbcType=VARCHAR},
-      </if>
-      <if test="shenfenzheng != null">
-        shenfenzheng = #{shenfenzheng,jdbcType=VARCHAR},
-      </if>
-      <if test="shoujihao != null">
-        shoujihao = #{shoujihao,jdbcType=VARCHAR},
-      </if>
-      <if test="shengri != null">
-        shengri = #{shengri,jdbcType=VARCHAR},
-      </if>
-      <if test="xingbie != null">
-        xingbie = #{xingbie,jdbcType=VARCHAR},
-      </if>
-      <if test="wenhua != null">
-        wenhua = #{wenhua,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        email = #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="gonghao != null">
-        gonghao = #{gonghao,jdbcType=VARCHAR},
-      </if>
-      <if test="tongyixieyi != null">
-        tongyixieyi = #{tongyixieyi,jdbcType=VARCHAR},
-      </if>
-      <if test="shengao != null">
-        shengao = #{shengao,jdbcType=VARCHAR},
-      </if>
-      <if test="luruduan != null">
-        luruduan = #{luruduan,jdbcType=VARCHAR},
-      </if>
-      <if test="shixiao != null">
-        shixiao = #{shixiao,jdbcType=VARCHAR},
-      </if>
-      <if test="riqi != null">
-        riqi = #{riqi,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.amchis.firstgeneration.bean.huoban.yonghu2s.Yonghu2s">
+    <insert id="insertSelective" parameterType="com.amchis.firstgeneration.bean.huoban.yonghu2s.Yonghu2s">
+        insert into yonghu2s
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="waijian != null">
+                waijian,
+            </if>
+            <if test="mingcheng != null">
+                mingcheng,
+            </if>
+            <if test="shenfenzheng != null">
+                shenfenzheng,
+            </if>
+            <if test="shoujihao != null">
+                shoujihao,
+            </if>
+            <if test="shengri != null">
+                shengri,
+            </if>
+            <if test="xingbie != null">
+                xingbie,
+            </if>
+            <if test="wenhua != null">
+                wenhua,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="gonghao != null">
+                gonghao,
+            </if>
+            <if test="tongyixieyi != null">
+                tongyixieyi,
+            </if>
+            <if test="shengao != null">
+                shengao,
+            </if>
+            <if test="luruduan != null">
+                luruduan,
+            </if>
+            <if test="shixiao != null">
+                shixiao,
+            </if>
+            <if test="riqi != null">
+                riqi,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="waijian != null">
+                #{waijian,jdbcType=VARCHAR},
+            </if>
+            <if test="mingcheng != null">
+                #{mingcheng,jdbcType=VARCHAR},
+            </if>
+            <if test="shenfenzheng != null">
+                #{shenfenzheng,jdbcType=VARCHAR},
+            </if>
+            <if test="shoujihao != null">
+                #{shoujihao,jdbcType=VARCHAR},
+            </if>
+            <if test="shengri != null">
+                #{shengri,jdbcType=VARCHAR},
+            </if>
+            <if test="xingbie != null">
+                #{xingbie,jdbcType=VARCHAR},
+            </if>
+            <if test="wenhua != null">
+                #{wenhua,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="gonghao != null">
+                #{gonghao,jdbcType=VARCHAR},
+            </if>
+            <if test="tongyixieyi != null">
+                #{tongyixieyi,jdbcType=VARCHAR},
+            </if>
+            <if test="shengao != null">
+                #{shengao,jdbcType=VARCHAR},
+            </if>
+            <if test="luruduan != null">
+                #{luruduan,jdbcType=VARCHAR},
+            </if>
+            <if test="shixiao != null">
+                #{shixiao,jdbcType=VARCHAR},
+            </if>
+            <if test="riqi != null">
+                #{riqi,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.amchis.firstgeneration.bean.huoban.yonghu2s.Yonghu2s">
+        update yonghu2s
+        <set>
+            <if test="waijian != null">
+                waijian = #{waijian,jdbcType=VARCHAR},
+            </if>
+            <if test="mingcheng != null">
+                mingcheng = #{mingcheng,jdbcType=VARCHAR},
+            </if>
+            <if test="shenfenzheng != null">
+                shenfenzheng = #{shenfenzheng,jdbcType=VARCHAR},
+            </if>
+            <if test="shoujihao != null">
+                shoujihao = #{shoujihao,jdbcType=VARCHAR},
+            </if>
+            <if test="shengri != null">
+                shengri = #{shengri,jdbcType=VARCHAR},
+            </if>
+            <if test="xingbie != null">
+                xingbie = #{xingbie,jdbcType=VARCHAR},
+            </if>
+            <if test="wenhua != null">
+                wenhua = #{wenhua,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="gonghao != null">
+                gonghao = #{gonghao,jdbcType=VARCHAR},
+            </if>
+            <if test="tongyixieyi != null">
+                tongyixieyi = #{tongyixieyi,jdbcType=VARCHAR},
+            </if>
+            <if test="shengao != null">
+                shengao = #{shengao,jdbcType=VARCHAR},
+            </if>
+            <if test="luruduan != null">
+                luruduan = #{luruduan,jdbcType=VARCHAR},
+            </if>
+            <if test="shixiao != null">
+                shixiao = #{shixiao,jdbcType=VARCHAR},
+            </if>
+            <if test="riqi != null">
+                riqi = #{riqi,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.amchis.firstgeneration.bean.huoban.yonghu2s.Yonghu2s">
     update yonghu2s
     set waijian = #{waijian,jdbcType=VARCHAR},
       mingcheng = #{mingcheng,jdbcType=VARCHAR},

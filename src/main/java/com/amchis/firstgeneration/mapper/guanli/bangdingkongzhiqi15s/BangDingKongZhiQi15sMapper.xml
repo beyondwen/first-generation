@@ -21,6 +21,19 @@
     from bangdingkongzhiqi15s
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectBySnOrWifiName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bangdingkongzhiqi15s
+    <where>
+      <if test="deviceSn!='null' and deviceSn!=''">
+        and bdkzq.liushuihao=#{deviceSn}
+      </if>
+      <if test="wifiName!='null' and wifiName!=''">
+        and bdkzq.wifiming=#{wifiName}
+      </if>
+    </where>
+  </select>
   <select id="selectByPhone" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
@@ -31,6 +44,49 @@
     select
     <include refid="Base_Column_List" />
     from bangdingkongzhiqi15s
+  </select>
+  <select id="ChaxunYibangding" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bangdingkongzhiqi15s
+    left join yonghu2s yh on yh.shoujihao=bdkzq.shoujihao
+    left join yonghuguanlizhe14s glz on yh.waijian=glz.yonghuwaijian
+    where glz.guanjiawaijian=#{biaoji}
+  </select>
+  <select id="ChaxunGuanjiaWifi" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bangdingkongzhiqi15s bdkzq
+    left join yonghu2s yh on bdkzq.shoujihao=yh.shoujihao
+    left join yonghuguanlizhe14s yhglz on yh.waijian=yhglz.yonghuwaijian
+    left join yonghu2s glz on yhglz.guanjiawaijian=yh.waijian
+    <where>
+      <if test="biaoji!='null' and biaoji!=''">
+        and yhglz.guanjiawaijian=#{biaoji}
+      </if>
+      <if test="WifimingChaxun!='null' and WifimingChaxun!=''">
+        and bdkzq.wifiming=#{WifimingChaxun}
+      </if>
+      <if test="LiushuihaoChaxun!='null' and LiushuihaoChaxun!=''">
+        and bdkzq.liushuihao=#{LiushuihaoChaxun}
+      </if>
+    </where>
+  </select>
+  <select id="getByWifiNameOrSN" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bangdingkongzhiqi15s bdkzq
+    <where>
+      <if test="WifimingChaxun!='null' and WifimingChaxun!=''">
+        and bdkzq.wifiming=#{WifimingChaxun}
+      </if>
+      <if test="LiushuihaoChaxun!='null' and LiushuihaoChaxun!=''">
+        and bdkzq.liushuihao=#{LiushuihaoChaxun}
+      </if>
+      <if test="shoujihao!='null' and shoujihao!=''">
+        and bdkzq.shoujihao=#{shoujihao}
+      </if>
+    </where>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from bangdingkongzhiqi15s
@@ -107,7 +163,98 @@
       </if>
     </trim>
   </insert>
+  <insert id="insertSelective4BindUser" parameterType="com.amchis.firstgeneration.bean.guanli.bangdingkongzhiqi15s.BangDingKongZhiQi15sforBindUser">
+    insert into bangdingkongzhiqi15s
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="waijian != null">
+        waijian,
+      </if>
+      <if test="shoujihao != null">
+        shoujihao,
+      </if>
+      <if test="wifiming != null">
+        wifiming,
+      </if>
+      <if test="macdizhi != null">
+        macdizhi,
+      </if>
+      <if test="liushuihao != null">
+        liushuihao,
+      </if>
+      <if test="luruduan != null">
+        luruduan,
+      </if>
+      <if test="shixiao != null">
+        shixiao,
+      </if>
+      <if test="riqi != null">
+        riqi,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="waijian != null">
+        #{waijian,jdbcType=VARCHAR},
+      </if>
+      <if test="shoujihao != null">
+        #{shoujihao,jdbcType=VARCHAR},
+      </if>
+      <if test="wifiming != null">
+        #{wifiming,jdbcType=VARCHAR},
+      </if>
+      <if test="macdizhi != null">
+        #{macdizhi,jdbcType=VARCHAR},
+      </if>
+      <if test="liushuihao != null">
+        #{liushuihao,jdbcType=VARCHAR},
+      </if>
+      <if test="luruduan != null">
+        #{luruduan,jdbcType=VARCHAR},
+      </if>
+      <if test="shixiao != null">
+        #{shixiao,jdbcType=VARCHAR},
+      </if>
+      <if test="riqi != null">
+        #{riqi,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.amchis.firstgeneration.bean.guanli.bangdingkongzhiqi15s.BangDingKongZhiQi15s">
+    update bangdingkongzhiqi15s
+    <set>
+      <if test="waijian != null">
+        waijian = #{waijian,jdbcType=VARCHAR},
+      </if>
+      <if test="shoujihao != null">
+        shoujihao = #{shoujihao,jdbcType=VARCHAR},
+      </if>
+      <if test="wifiming != null">
+        wifiming = #{wifiming,jdbcType=VARCHAR},
+      </if>
+      <if test="macdizhi != null">
+        macdizhi = #{macdizhi,jdbcType=VARCHAR},
+      </if>
+      <if test="liushuihao != null">
+        liushuihao = #{liushuihao,jdbcType=VARCHAR},
+      </if>
+      <if test="luruduan != null">
+        luruduan = #{luruduan,jdbcType=VARCHAR},
+      </if>
+      <if test="shixiao != null">
+        shixiao = #{shixiao,jdbcType=VARCHAR},
+      </if>
+      <if test="riqi != null">
+        riqi = #{riqi,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeySelective4BindUser" parameterType="com.amchis.firstgeneration.bean.guanli.bangdingkongzhiqi15s.BangDingKongZhiQi15sforBindUser">
     update bangdingkongzhiqi15s
     <set>
       <if test="waijian != null">

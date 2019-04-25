@@ -27,6 +27,16 @@
     <include refid="Base_Column_List" />
     from ziyuan4s
   </select>
+  <select id="selectZyByYonghuwaijian" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    zy.*
+    from gl1he2s yhjs
+    left join gl1he4s jszy on jszy.juesewaijian = yhjs.juesewaijian
+    left join ziyuan4s zy on zy.waijian = jszy.ziyuanwaijian
+    where yhjs.yonghuwaijian = #{yonghuwaijian}
+    and zy.leixing='CAIDAN'
+    group by zy.waijian
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from ziyuan4s
     where id = #{id,jdbcType=INTEGER}

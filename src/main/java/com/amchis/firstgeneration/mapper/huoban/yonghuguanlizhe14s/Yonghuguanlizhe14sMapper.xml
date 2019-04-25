@@ -122,4 +122,5 @@
       riqi = #{riqi,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
 </mapper>

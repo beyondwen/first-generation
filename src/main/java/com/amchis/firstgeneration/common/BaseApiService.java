@@ -32,6 +32,12 @@ public class BaseApiService<T extends BaseBean> {
 
     }
 
+    //通用封装
+    public ReponseVo setResult(String Zhuangtai, T t) {
+        return new ReponseVo(Zhuangtai, t);
+
+    }
+
     protected Boolean toDaoResult(int result) {
         return result > 0 ? true : false;
     }
@@ -48,7 +54,16 @@ public class BaseApiService<T extends BaseBean> {
             return getReponseVo(baseMapper, i);
         }
         return setResult("0", "XITONG_YICHANG", "系统异常，请联系管理员");
+    }
 
+    protected ReponseVo commomDelete(Integer[] ids, BaseMapper<T> baseMapper) {
+        for (Integer id : ids) {
+            if (id != null) {
+                int i = baseMapper.deleteByPrimaryKey(id);
+                return getReponseVo(baseMapper, i);
+            }
+        }
+        return setResult("0", "XITONG_YICHANG", "系统异常，请联系管理员");
     }
 
     private ReponseVo getReponseVo(BaseMapper<T> baseMapper, int i) {

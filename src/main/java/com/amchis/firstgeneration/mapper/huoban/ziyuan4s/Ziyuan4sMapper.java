@@ -18,7 +18,11 @@ public interface Ziyuan4sMapper extends BaseMapper<Ziyuan4s> {
 
     List<Ziyuan4s> getAll();
 
+    List<Ziyuan4s> selectZyByYonghuwaijian(String yonghuwaijian);
+
     int updateByPrimaryKeySelective(Ziyuan4s record);
 
     int updateByPrimaryKey(Ziyuan4s record);
+
+
 }
