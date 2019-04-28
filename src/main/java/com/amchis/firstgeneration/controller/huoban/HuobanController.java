@@ -31,6 +31,7 @@ import com.amchis.firstgeneration.common.BaseApiService;
 import com.amchis.firstgeneration.common.ReponseVo;
 import com.amchis.firstgeneration.mapper.guanli.bangdingkongzhiqi15s.BangDingKongZhiQi15sMapper;
 import com.amchis.firstgeneration.mapper.guanli.gl1he2s.Gl1he2sMapper;
+import com.amchis.firstgeneration.mapper.guanli.kehuyaowu18s.KeHuYaoWu18sMapper;
 import com.amchis.firstgeneration.mapper.huoban.cuowu9s.CuoWu9sMapper;
 import com.amchis.firstgeneration.mapper.huoban.gl12he13s.Gl12He13sMapper;
 import com.amchis.firstgeneration.mapper.huoban.gl13he13s.Gl13He13sMapper;
@@ -40,7 +41,7 @@ import com.amchis.firstgeneration.mapper.huoban.jiankangwenjuan7s.JianKangWenJua
 import com.amchis.firstgeneration.mapper.huoban.jiaoyan10s.JiaoYan10sMapper;
 import com.amchis.firstgeneration.mapper.huoban.jiaoyanleixing11s.Jiaoyanleixing11sMapper;
 import com.amchis.firstgeneration.mapper.huoban.juese1s.Juese1sMapper;
-import com.amchis.firstgeneration.mapper.huoban.kehuyaowu18s.Kehuyaowu18sMapper;
+
 import com.amchis.firstgeneration.mapper.huoban.manyidu19s.Manyidu19sMapper;
 import com.amchis.firstgeneration.mapper.huoban.mokuai13s.Mokuai13sMapper;
 import com.amchis.firstgeneration.mapper.huoban.richang6s.Richang6sMapper;
@@ -105,7 +106,7 @@ public class HuobanController extends BaseApiService {
     private Juese1sMapper juese1sMapper;
 
     @Autowired
-    private Kehuyaowu18sMapper kehuyaowu18sMapper;
+    private KeHuYaoWu18sMapper kehuyaowu18sMapper;
 
     @Autowired
     private Manyidu19sMapper manyidu19sMapper;

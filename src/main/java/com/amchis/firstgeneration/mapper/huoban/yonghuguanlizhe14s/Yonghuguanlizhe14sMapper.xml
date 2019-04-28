@@ -19,6 +19,12 @@
         from yonghuguanlizhe14s
         where id = #{id,jdbcType=INTEGER}
     </select>
+    <select id="selectByWaijianAndGuanjiaWaijian" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from yonghuguanlizhe14s
+        where yonghuwaijian =#{waijian} and waijian = #{guanjiawaijian}
+    </select>
     <select id="getAll" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>

@@ -66,5 +66,70 @@ public class Tijian5s extends BaseBean {
     @JsonProperty(value = "Shujuriqi")
     private String shujuriqi;
 
+    @JsonProperty(value = "Guanjiacunzai")
+    private String guanjiacunzai;
 
+    @JsonProperty(value = "Wenjuancunzai")
+    private String wenjuancunzai;
+
+    @JsonProperty(value = "JiaoxueUrl")
+    private String jiaoxueUrl;
+
+
+
+    @JsonProperty("ZaoYidao")
+    private String zaoYidao;
+    @JsonProperty("ZaoYidaoLiang")
+    private String zaoYidaoLiang;
+    @JsonProperty("ZaoKoufu1")
+    private String zaoKoufu1;
+    @JsonProperty("ZaoKoufu1Liang")
+    private String zaoKoufu1Liang;
+    @JsonProperty("ZaoKoufu2")
+    private String zaoKoufu2;
+    @JsonProperty("ZaoKoufu2Liang")
+    private String zaoKoufu2Liang;
+    @JsonProperty("ZaoKoufu3")
+    private String zaoKoufu3;
+    @JsonProperty("ZaoKoufu3Liang")
+    private String zaoKoufu3Liang;
+    @JsonProperty("ZhongYidao")
+    private String zhongYidao;
+    @JsonProperty("ZhongYidaoLiang")
+    private String zhongYidaoLiang;
+    @JsonProperty("ZhongKoufu1")
+    private String zhongKoufu1;
+    @JsonProperty("ZhongKoufu1Liang")
+    private String zhongKoufu1Liang;
+    @JsonProperty("ZhongKoufu2")
+    private String zhongKoufu2;
+    @JsonProperty("ZhongKoufu2Liang")
+    private String zhongKoufu2Liang;
+    @JsonProperty("ZhongKoufu3")
+    private String zhongKoufu3;
+    @JsonProperty("ZhongKoufu3Liang")
+    private String zhongKoufu3Liang;
+    @JsonProperty("WanYidao")
+    private String wanYidao;
+    @JsonProperty("WanYidaoLiang")
+    private String wanYidaoLiang;
+    @JsonProperty("WanKoufu1")
+    private String wanKoufu1;
+    @JsonProperty("WanKoufu1Liang")
+    private String wanKoufu1Liang;
+    @JsonProperty("WanKoufu2")
+    private String wanKoufu2;
+    @JsonProperty("WanKoufu2Liang")
+    private String wanKoufu2Liang;
+    @JsonProperty("WanKoufu3")
+    private String wanKoufu3;
+    @JsonProperty("WanKoufu3Liang")
+    private String wanKoufu3Liang;
+    @JsonProperty("ShuiqianYidao")
+    private String shuiqianYidao;
+    @JsonProperty("ShuiqianYidaoLiang")
+    private String shuiqianYidaoLiang;
+
+    @JsonProperty("ShujuZhouqi")
+    private String shujuZhouqi;
 }

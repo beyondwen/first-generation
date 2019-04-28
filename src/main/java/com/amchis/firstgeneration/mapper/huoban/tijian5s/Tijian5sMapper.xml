@@ -51,6 +51,18 @@
         from tijian5s
         where id = #{id,jdbcType=INTEGER}
     </select>
+    <select id="selectByshujuriAndWaijian" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tijian5s ret
+        where shujuriqi = #{shujuriqi} and ret.Yonghuwaijian=#{waijian}
+    </select>
+    <select id="ChaxunGerenZuizaoTijian" parameterType="java.lang.String" resultType="java.lang.String">
+        select
+        DATE_FORMAT(min(str_to_date(tj.shujuriqi,'%Y-%m-%d')),'%Y-%m-%d') as shujuriqi
+        from tijian5s tj
+        where tj.Yonghuwaijian=#{waijian}
+    </select>
     <select id="getAll" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>

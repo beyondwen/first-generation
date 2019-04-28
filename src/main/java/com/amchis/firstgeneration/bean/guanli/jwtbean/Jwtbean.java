@@ -13,10 +13,18 @@ public class Jwtbean {
 
     private String jueseBianma;
 
+    private Long time;
+
     public Jwtbean(String waijian, String shoujihao, String gonghao, String jueseBianma) {
         this.waijian = waijian;
         this.shoujihao = shoujihao;
         this.gonghao = gonghao;
         this.jueseBianma = jueseBianma;
+    }
+
+    public Jwtbean(String waijian, String shoujihao, Long time) {
+        this.waijian = waijian;
+        this.shoujihao = shoujihao;
+        this.time = time;
     }
 }

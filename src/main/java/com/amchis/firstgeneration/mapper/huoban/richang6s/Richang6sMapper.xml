@@ -190,4 +190,17 @@
       shujuriqi = #{shujuriqi,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+    <select id="ChaxunAppSuoyouRichangRiqi" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from richang6s
+        where yonghuwaijian = #{yonghuwaijian}
+    </select>
+    <select id="ChaxunYigeRichang6s" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from richang6s
+        where yonghuwaijian = #{yonghuwaijian} and shujuriqi =#{shujuriqi}
+    </select>
 </mapper>

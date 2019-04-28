@@ -33,8 +33,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 Claims claims = JwtUtil.parseJWT(token);
                 String biaoji = (String) claims.get("Biaoji");
                 String jueseBianma = (String) claims.get("JueseBianma");
+                String shoujihao = (String) claims.get("Zhanghao");
                 request.setAttribute("Biaoji", biaoji);
                 request.setAttribute("JueseBianma", jueseBianma);
+                request.setAttribute("Shoujihao", shoujihao);
                 //如果jwt令牌通过了检测, 那么就把request传递给后面的RESTful api
                 filterChain.doFilter(request, response);
             } else if (isHuoban(request)) {

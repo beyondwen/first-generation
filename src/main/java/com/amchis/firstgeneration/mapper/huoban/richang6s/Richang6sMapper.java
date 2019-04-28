@@ -2,6 +2,7 @@ package com.amchis.firstgeneration.mapper.huoban.richang6s;
 
 import com.amchis.firstgeneration.bean.huoban.richang6s.Richang6s;
 import com.amchis.firstgeneration.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,6 +16,10 @@ public interface Richang6sMapper extends BaseMapper<Richang6s> {
     int insertSelective(Richang6s record);
 
     Richang6s selectByPrimaryKey(Integer id);
+
+    List<Richang6s> ChaxunAppSuoyouRichangRiqi(String yonghuwaijian);
+
+    List<Richang6s> ChaxunYigeRichang6s(@Param("yonghuwaijian") String yonghuwaijian,@Param("shujuriqi") String shujuriqi);
 
     List<Richang6s> getAll();
 

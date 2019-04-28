@@ -28,6 +28,51 @@
         from yonghu2s
         where id = #{id,jdbcType=INTEGER}
     </select>
+    <select id="ChaxunYigeYonghu2s" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from yonghu2s
+        where waijian =#{waijian}
+    </select>
+
+    <select id="HuoquGuanjia" parameterType="java.lang.String" resultType="com.amchis.firstgeneration.bean.kehuapp.zidongdenglu.Zidongdenglu">
+        select
+        kehu.Mingcheng mingcheng,
+        kehu.Shoujihao shoujihao,
+        kehu.Shenfenzheng shenfenzheng,
+        kehu.Shengri shengri,
+        kehu.Xingbie xingbie,
+        kehu.Wenhua wenhua,
+        kehu.Email email,
+        kehu.Luruduan luruduan,
+        kehu.Tongyixieyi tongyixieyi,
+        gj.Shoujihao guanjiashoujihao,
+        gj.Mingcheng guanjiamingcheng,
+        gj.gonghao guanjiagonghao,
+        kzq.wifiming kongzhiqiwifimingcheng,
+        kzq.liushuihao kongzhiqiliushuihao
+        from yonghu2s kehu
+        right join yonghuguanlizhe14s glz on glz.yonghuwaijian=kehu.waijian
+        left join yonghu2s gj on glz.guanjiawaijian=gj.waijian
+        left join bangdingkongzhiqi15s kzq on kzq.shoujihao=kehu.shoujihao
+        where kehu.waijian=#{waijian}
+    </select>
+
+
+    <select id="selectByShoujihaoAndJiaoyan" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from yonghu2s yh
+        left join jiaoyan10s jy on yh.waijian=jy.yonghuwaijian
+        <where>
+            <if test="shoujihao != null and shoujihao != ''">
+                and yh.shoujihao=#{shoujihao}
+            </if>
+            <if test="jiaoyanzhi != null and jiaoyanzhi != ''">
+                and jy.jiaoyanzhi=#{jiaoyanzhi}
+            </if>
+        </where>
+    </select>
     <select id="ChaxunZhuguanKehu" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -57,6 +102,16 @@
         <where>
             <if test="guanjiawaijian != null and guanjiawaijian != '' ">
                 and glz.guanjiawaijian=#{guanjiawaijian}
+            </if>
+        </where>
+    </select>
+    <select id="chaxunyonghuByshouji" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from yonghu2s yh
+        <where>
+            <if test="shoujihao != null and shoujihao != '' ">
+                and yh.shoujihao=#{shoujihao}
             </if>
         </where>
     </select>

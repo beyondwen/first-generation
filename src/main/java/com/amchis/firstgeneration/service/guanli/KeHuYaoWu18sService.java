@@ -1,8 +1,8 @@
 package com.amchis.firstgeneration.service.guanli;
 
-import com.amchis.firstgeneration.bean.guanli.kehuyaowu18s.KeHuYaoWu18s;
 import com.amchis.firstgeneration.bean.guanli.kehuyaowu18s.YaoWU;
 import com.amchis.firstgeneration.bean.guanli.user.User;
+import com.amchis.firstgeneration.bean.huoban.kehuyaowu18s.Kehuyaowu18s;
 import com.amchis.firstgeneration.common.BaseApiService;
 import com.amchis.firstgeneration.common.ReponseVo;
 import com.amchis.firstgeneration.mapper.guanli.kehuyaowu18s.KeHuYaoWu18sMapper;
@@ -26,15 +26,15 @@ public class KeHuYaoWu18sService extends BaseApiService<YaoWU> {
         return keHuYaoWu18sMapper.deleteByPrimaryKey(id);
     }
 
-    public int insert(KeHuYaoWu18s record) {
+    public int insert(Kehuyaowu18s record) {
         return keHuYaoWu18sMapper.insert(record);
     }
 
-    public int insertSelective(KeHuYaoWu18s record) {
+    public int insertSelective(Kehuyaowu18s record) {
         return keHuYaoWu18sMapper.insertSelective(record);
     }
 
-    public KeHuYaoWu18s selectByPrimaryKey(Integer id) {
+    public Kehuyaowu18s selectByPrimaryKey(Integer id) {
         return keHuYaoWu18sMapper.selectByPrimaryKey(id);
     }
 
@@ -44,11 +44,11 @@ public class KeHuYaoWu18sService extends BaseApiService<YaoWU> {
         if (user == null) {
             return setResult("0", "YONGHU_BUCUNZAI", "用户不存在");
         } else {
-            List<KeHuYaoWu18s> keHuYaoWu18s = keHuYaoWu18sMapper.selectByYonghuwaijian(yonghuwaijian);
+            List<Kehuyaowu18s> keHuYaoWu18s = keHuYaoWu18sMapper.selectByYonghuwaijian(yonghuwaijian);
             List<YaoWU> yaoWUS = new ArrayList<>();
             if (keHuYaoWu18s.size() > 0) {
                 YaoWU yaoWU = new YaoWU();
-                for (KeHuYaoWu18s keHuYaoWu18 : keHuYaoWu18s) {
+                for (Kehuyaowu18s keHuYaoWu18 : keHuYaoWu18s) {
                     if ("YIDAO".equals(keHuYaoWu18.getLeixing()) && "ZAO".equals(keHuYaoWu18.getLeixing())) {
                         yaoWU.setShujushijian(keHuYaoWu18.getShujuriqi());
                         yaoWU.setShujuzhi(keHuYaoWu18.getJiliang());
@@ -138,11 +138,11 @@ public class KeHuYaoWu18sService extends BaseApiService<YaoWU> {
         }
     }
 
-    public int updateByPrimaryKeySelective(KeHuYaoWu18s record) {
+    public int updateByPrimaryKeySelective(Kehuyaowu18s record) {
         return keHuYaoWu18sMapper.updateByPrimaryKeySelective(record);
     }
 
-    public int updateByPrimaryKey(KeHuYaoWu18s record) {
+    public int updateByPrimaryKey(Kehuyaowu18s record) {
         return keHuYaoWu18sMapper.updateByPrimaryKey(record);
     }
 }

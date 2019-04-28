@@ -1,21 +1,21 @@
 package com.amchis.firstgeneration.service.guanli;
 
-import com.amchis.firstgeneration.bean.guanli.richang6s.RiChang6s;
 import com.amchis.firstgeneration.bean.guanli.user.User;
+import com.amchis.firstgeneration.bean.huoban.richang6s.Richang6s;
 import com.amchis.firstgeneration.common.BaseApiService;
 import com.amchis.firstgeneration.common.ReponseVo;
-import com.amchis.firstgeneration.mapper.guanli.richang6s.RiChang6sMapper;
 import com.amchis.firstgeneration.mapper.guanli.user.UserMapper;
+import com.amchis.firstgeneration.mapper.huoban.richang6s.Richang6sMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class RiChang6sService extends BaseApiService<RiChang6s> {
+public class RiChang6sService extends BaseApiService<Richang6s> {
 
     @Autowired
-    private RiChang6sMapper riChang6sMapper;
+    private Richang6sMapper riChang6sMapper;
 
     @Autowired
     private UserMapper userMapper;
@@ -24,15 +24,15 @@ public class RiChang6sService extends BaseApiService<RiChang6s> {
         return riChang6sMapper.deleteByPrimaryKey(id);
     }
 
-    public int insert(RiChang6s record) {
+    public int insert(Richang6s record) {
         return riChang6sMapper.insert(record);
     }
 
-    public int insertSelective(RiChang6s record) {
+    public int insertSelective(Richang6s record) {
         return riChang6sMapper.insertSelective(record);
     }
 
-    public RiChang6s selectByPrimaryKey(Integer id) {
+    public Richang6s selectByPrimaryKey(Integer id) {
         return riChang6sMapper.selectByPrimaryKey(id);
     }
 
@@ -42,7 +42,7 @@ public class RiChang6sService extends BaseApiService<RiChang6s> {
         if (user == null) {
             return setResult("0", "YONGHU_BUCUNZAI", "用户不存在");
         } else {
-            List<RiChang6s> riChang6s = riChang6sMapper.ChaxunAppSuoyouRichangRiqi(yonghuwaijian);
+            List<Richang6s> riChang6s = riChang6sMapper.ChaxunAppSuoyouRichangRiqi(yonghuwaijian);
             if (riChang6s.size() > 0) {
                 return setResult("1", riChang6s);
             } else {
@@ -51,11 +51,11 @@ public class RiChang6sService extends BaseApiService<RiChang6s> {
         }
     }
 
-    public int updateByPrimaryKeySelective(RiChang6s record) {
+    public int updateByPrimaryKeySelective(Richang6s record) {
         return riChang6sMapper.updateByPrimaryKeySelective(record);
     }
 
-    public int updateByPrimaryKey(RiChang6s record) {
+    public int updateByPrimaryKey(Richang6s record) {
         return riChang6sMapper.updateByPrimaryKey(record);
     }
 }

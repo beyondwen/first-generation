@@ -4,6 +4,8 @@ import com.amchis.firstgeneration.bean.BaseBean;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
+
 @Data
 public class Yonghu2s extends BaseBean {
 
@@ -11,6 +13,7 @@ public class Yonghu2s extends BaseBean {
     private String mingcheng;
     @JsonProperty(value = "Shenfenzheng")
     private String shenfenzheng;
+    @NotBlank(message = "请输入手机号")
     @JsonProperty(value = "Shoujihao")
     private String shoujihao;
     @JsonProperty(value = "Shengri")
