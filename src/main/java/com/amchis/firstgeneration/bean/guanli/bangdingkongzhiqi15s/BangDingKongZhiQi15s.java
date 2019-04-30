@@ -22,7 +22,8 @@ public class BangDingKongZhiQi15s extends BaseBean {
     @JsonProperty(value = "Macdizhi")
     private String macdizhi;
 
-
-
+    @NotBlank(message = "SN号不能为空")
+    @JsonProperty(value = "Liushuihao")
+    private String liushuihao;
 
 }

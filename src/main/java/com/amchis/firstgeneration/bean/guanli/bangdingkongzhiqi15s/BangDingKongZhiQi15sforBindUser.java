@@ -18,7 +18,6 @@ public class BangDingKongZhiQi15sforBindUser{
     @JsonProperty(value = "Wifiming")
     private String wifiming;
 
-    @NotBlank(message = "MAC地址不能为空")
     private String macdizhi;
 
     @JsonProperty(value = "Id")
@@ -37,6 +36,7 @@ public class BangDingKongZhiQi15sforBindUser{
     @JsonProperty(value = "Liushuihao")
     private String liushuihao;
 
+    @JsonProperty(value = "Waijian")
     private String waijian;
 
 }

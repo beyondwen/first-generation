@@ -82,7 +82,7 @@
     </select>
     <select id="ChaxunGuanjiayonghu" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List"/>
+        yh.*
         from yonghu2s yh
         left join yonghuguanlizhe14s glz on yh.waijian = glz.yonghuwaijian
         <where>
@@ -96,7 +96,7 @@
     </select>
     <select id="ChaxunGuanjiayonghuByWaijian" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List"/>
+        yh.*
         from yonghu2s yh
         left join yonghuguanlizhe14s glz on yh.waijian = glz.yonghuwaijian
         <where>

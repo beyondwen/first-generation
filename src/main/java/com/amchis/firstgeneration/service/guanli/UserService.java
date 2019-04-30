@@ -86,6 +86,7 @@ public class UserService extends BaseApiService<User> {
         } else {
             String mingcheng = registerBean.getMingcheng();
             String shoujihao = registerBean.getShoujihao();
+            user = new User();
             user.setWaijian(GetTime.getGuid());
             user.setMingcheng(mingcheng);
             user.setShoujihao(shoujihao);
@@ -94,7 +95,7 @@ public class UserService extends BaseApiService<User> {
             user.setRiqi(DateUtils.getDay());
             int i = userMapper.insertSelective(user);
             if (toDaoResult(i)) {
-                return setResult("1", "LURU_CHENGGONG", "录入成功");
+                return setResult("1", "TIANJIA_CHENGGONG", "添加帐号成功，请给此帐号分配角色！");
             } else {
                 return setResult("1", "LURU_SHIBAI", "录入失败");
             }

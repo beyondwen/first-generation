@@ -1,13 +1,28 @@
 package com.amchis.firstgeneration.bean.guanli.shangchuanshijians;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Data
+
 public class ShebeiShijianMoxingCanshu {
-    private String Shoujihao;
-    private ShebeiShijianMoxing ShebeiShijianMoxing;
+    @JsonProperty("Shoujihao")
+    private String shoujihao;
+
+    @JsonProperty("ShebeiShijianMoxing")
+    private ShebeiShijianMoxing shebeiShijianMoxing;
+
+    public ShebeiShijianMoxing getShebeiShijianMoxing() {
+        return shebeiShijianMoxing;
+    }
+
+    public void setShebeiShijianMoxing(ShebeiShijianMoxing shebeiShijianMoxing) {
+        this.shebeiShijianMoxing = shebeiShijianMoxing;
+    }
+
+    public String getShoujihao() {
+        return shoujihao;
+    }
 
     public void setShoujihao(String shoujihao) {
-        Shoujihao = ShebeiShijianMoxing.getShoujihao();
+        this.shoujihao = shebeiShijianMoxing.getShoujihao();
     }
 }

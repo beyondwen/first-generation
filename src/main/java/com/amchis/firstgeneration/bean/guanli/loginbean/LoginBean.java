@@ -1,29 +1,15 @@
 package com.amchis.firstgeneration.bean.guanli.loginbean;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
 public class LoginBean {
 
-    public Denglubiaodan Denglubiaodan;
+    @JsonProperty("Gonghao")
+    private String gonghao;
 
-    private String Gonghao;
-
+    @JsonProperty("Mima")
     private String Mima;
 
-    public com.amchis.firstgeneration.bean.guanli.loginbean.Denglubiaodan getDenglubiaodan() {
-        return Denglubiaodan;
-    }
-
-    public void setDenglubiaodan(com.amchis.firstgeneration.bean.guanli.loginbean.Denglubiaodan denglubiaodan) {
-        Denglubiaodan = denglubiaodan;
-    }
-
-    public String getGonghao() {
-        return Denglubiaodan.getGonghao();
-    }
-
-    public String getMima() {
-        return Denglubiaodan.getMima();
-    }
 }

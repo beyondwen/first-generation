@@ -1,9 +1,19 @@
 package com.amchis.firstgeneration.bean.guanli.shangchuanshijians;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-@Data
+
 public class ShebeiShijianMoxing {
 
-    private String Shoujihao;
+    @JsonProperty("Shoujihao")
+    private String shoujihao;
+
+    public String getShoujihao() {
+        return shoujihao;
+    }
+
+    public void setShoujihao(String shoujihao) {
+        this.shoujihao = shoujihao;
+    }
 }

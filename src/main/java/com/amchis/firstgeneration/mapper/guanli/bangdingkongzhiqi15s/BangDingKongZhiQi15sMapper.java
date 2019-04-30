@@ -23,11 +23,11 @@ public interface BangDingKongZhiQi15sMapper extends BaseMapper<BangDingKongZhiQi
 
     BangDingKongZhiQi15s selectBySnOrWifiName(@Param("deviceSn") String deviceSn, @Param("wifiName") String wifiName);
 
-    BangDingKongZhiQi15s selectByPhone(String shoujihao);
+    BangDingKongZhiQi15s selectByPhone(@Param("shoujihao") String shoujihao);
 
     List<BangDingKongZhiQi15s> getAll();
 
-    List<BangDingKongZhiQi15s> ChaxunYibangding(String biaoji);
+    List<BangDingKongZhiQi15s> ChaxunYibangding(@Param("biaoji") String biaoji);
 
     BangDingKongZhiQi15s ChaxunGuanjiaWifi(@Param("biaoji") String biaoji, @Param("WifimingChaxun") String WifimingChaxun, @Param("LiushuihaoChaxun") String LiushuihaoChaxun);
 

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class JiYinJianCe20s extends BaseBean {
+public class JiYinJianCe20{
     @JsonProperty("Yonghuwaijian")
     private String yonghuwaijian;
     @JsonProperty("Cdkal11")
@@ -20,8 +20,6 @@ public class JiYinJianCe20s extends BaseBean {
     private String slc30a8;
     @JsonProperty("Kcnq1")
     private String kcnq1;
-    @JsonProperty("Shuoming")
-    private String shuoming;
     @JsonProperty("Yonghumingcheng")
     private String yonghumingcheng;
     @JsonProperty("Yonghushoujihao")

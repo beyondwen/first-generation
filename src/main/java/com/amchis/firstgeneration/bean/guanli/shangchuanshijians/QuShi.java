@@ -1,6 +1,7 @@
 package com.amchis.firstgeneration.bean.guanli.shangchuanshijians;
 
 import com.amchis.firstgeneration.bean.BaseBean;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
@@ -8,9 +9,10 @@ import lombok.Data;
  */
 
 @Data
-public class QuShi extends BaseBean {
+public class QuShi{
 
-    private String Riqi;
-
-    private String Shijian;
+    @JsonProperty("Riqi")
+    private String riqi;
+    @JsonProperty("Shijian")
+    private String shijian;
 }

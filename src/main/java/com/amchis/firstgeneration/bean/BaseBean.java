@@ -18,13 +18,8 @@ public class BaseBean {
     @JsonProperty(value = "Shixiao")
     private String shixiao;
 
-    @NotBlank(message = "录入端不能为空")
     @JsonProperty(value = "Luruduan")
     private String luruduan;
-
-    @NotBlank(message = "SN号不能为空")
-    @JsonProperty(value = "Liushuihao")
-    private String liushuihao;
 
     @JsonProperty(value = "Waijian")
     private String waijian;

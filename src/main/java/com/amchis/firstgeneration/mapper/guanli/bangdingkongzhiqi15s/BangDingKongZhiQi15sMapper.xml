@@ -24,7 +24,7 @@
   <select id="selectBySnOrWifiName" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-    from bangdingkongzhiqi15s
+    from bangdingkongzhiqi15s bdkzq
     <where>
       <if test="deviceSn!='null' and deviceSn!=''">
         and bdkzq.liushuihao=#{deviceSn}
@@ -47,19 +47,18 @@
   </select>
   <select id="ChaxunYibangding" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
-    <include refid="Base_Column_List" />
-    from bangdingkongzhiqi15s
-    left join yonghu2s yh on yh.shoujihao=bdkzq.shoujihao
+    bdkzq.*
+    from bangdingkongzhiqi15s bdkzq
+    left join yonghu2s yh on yh.shoujihao= bdkzq.shoujihao
     left join yonghuguanlizhe14s glz on yh.waijian=glz.yonghuwaijian
     where glz.guanjiawaijian=#{biaoji}
   </select>
   <select id="ChaxunGuanjiaWifi" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
-    <include refid="Base_Column_List" />
+    bdkzq.*
     from bangdingkongzhiqi15s bdkzq
     left join yonghu2s yh on bdkzq.shoujihao=yh.shoujihao
     left join yonghuguanlizhe14s yhglz on yh.waijian=yhglz.yonghuwaijian
-    left join yonghu2s glz on yhglz.guanjiawaijian=yh.waijian
     <where>
       <if test="biaoji!='null' and biaoji!=''">
         and yhglz.guanjiawaijian=#{biaoji}

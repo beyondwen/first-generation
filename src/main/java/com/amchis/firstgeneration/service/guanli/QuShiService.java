@@ -15,7 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Service
-public class QuShiService extends BaseApiService<QuShi> {
+public class QuShiService extends BaseApiService {
 
     @Autowired
     private ShangChuanShiJiansMapper shangChuanShiJiansMapper;

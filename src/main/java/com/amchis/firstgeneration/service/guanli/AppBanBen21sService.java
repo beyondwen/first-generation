@@ -33,9 +33,8 @@ public class AppBanBen21sService extends BaseApiService<AppBanBen21s> {
     }
 
     public ReponseVo getAppUpdate() {
-        AppBanBen21s appUpdate = appBanBen21sMapper.getAppUpdate();
-        List<AppBanBen21s> appBanBen21s = new ArrayList<>();
-        return setResult("1",appBanBen21s);
+        List<AppBanBen21s> appUpdate = appBanBen21sMapper.getAppUpdate();
+        return setResult("1",appUpdate);
     }
 
     public int updateByPrimaryKeySelective(AppBanBen21s record) {

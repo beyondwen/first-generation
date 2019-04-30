@@ -26,11 +26,18 @@
     from jiyinjiance20s
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectJiYinJianCe" resultMap="BaseResultMap">
+  <select id="selectJiYinJianCe" resultType="com.amchis.firstgeneration.bean.guanli.jiyinjiance20s.JiYinJianCe20">
     select
-    <include refid="Base_Column_List" />,
-    yh.mingcheng yonghumingcheng,yh.shoujihao yonghushoujihao
-    from jiyinjiance20s
+    jyjc.yonghuwaijian yonghuwaijian,
+    jyjc.cdkal1_1 cdkal11,
+    jyjc.cdkal1_2 cdkal12,
+    jyjc.cdkn2a_b cdkn2aB,
+    jyjc.hhex hhex,
+    jyjc.slc30a8 slc30a8,
+    jyjc.kcnq1 kcnq1,
+    yh.mingcheng yonghumingcheng,
+    yh.shoujihao yonghushoujihao
+    from jiyinjiance20s jyjc
     left join yonghu2s yh on yh.waijian=jyjc.yonghuwaijian
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">

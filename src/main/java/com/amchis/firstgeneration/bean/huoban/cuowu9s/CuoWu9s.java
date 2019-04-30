@@ -25,5 +25,4 @@ public class CuoWu9s extends BaseBean {
     @JsonProperty(value = "Canshuzhi")
     private String canshuzhi;
 
-
 }

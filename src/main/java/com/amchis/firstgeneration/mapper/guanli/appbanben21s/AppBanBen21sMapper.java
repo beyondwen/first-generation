@@ -3,6 +3,8 @@ package com.amchis.firstgeneration.mapper.guanli.appbanben21s;
 import com.amchis.firstgeneration.bean.guanli.appbanben21s.AppBanBen21s;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface AppBanBen21sMapper {
     int deleteByPrimaryKey(Integer id);
@@ -12,7 +14,7 @@ public interface AppBanBen21sMapper {
     int insertSelective(AppBanBen21s record);
 
     AppBanBen21s selectByPrimaryKey(Integer id);
-    AppBanBen21s getAppUpdate();
+    List<AppBanBen21s> getAppUpdate();
 
     int updateByPrimaryKeySelective(AppBanBen21s record);
 

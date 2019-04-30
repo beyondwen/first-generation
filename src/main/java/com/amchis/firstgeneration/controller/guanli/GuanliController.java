@@ -2,7 +2,9 @@ package com.amchis.firstgeneration.controller.guanli;
 
 import com.amchis.firstgeneration.bean.guanli.Register.RegisterBean;
 import com.amchis.firstgeneration.bean.guanli.loginbean.LoginBean;
+import com.amchis.firstgeneration.bean.guanli.shangchuanshijians.ShebeiShijianMoxing;
 import com.amchis.firstgeneration.bean.guanli.shangchuanshijians.ShebeiShijianMoxingCanshu;
+import com.amchis.firstgeneration.bean.guanli.user.User;
 import com.amchis.firstgeneration.common.BaseApiService;
 import com.amchis.firstgeneration.common.ReponseVo;
 import com.amchis.firstgeneration.service.guanli.*;
@@ -49,7 +51,7 @@ public class GuanliController extends BaseApiService {
      * @return
      */
     @PostMapping("/denglu")
-    public ReponseVo login(@RequestBody(required = false) LoginBean loginBean) {
+    public ReponseVo login(@RequestBody LoginBean loginBean) {
         return userService.findByName(loginBean);
     }
 
@@ -61,7 +63,7 @@ public class GuanliController extends BaseApiService {
      */
     @PostMapping("/caidan")
     public ReponseVo menu(HttpServletRequest request) {
-        String biaoji = (String) request.getAttribute("biaoji");
+        String biaoji = (String) request.getAttribute("Biaoji");
         String jueseBianma = (String) request.getAttribute("JueseBianma");
         return ziyuanService.selectZyByYonghuwaijian(biaoji, jueseBianma);
     }
@@ -86,25 +88,25 @@ public class GuanliController extends BaseApiService {
     /**
      * 获取日常数据
      *
-     * @param Shoujihao
+     * @param user
      * @return
      */
     @PostMapping("/guanjiahuoqusuoyourichang")
-    public ReponseVo getAllManagerDaily(HttpServletRequest request, @RequestBody String Shoujihao) {
-        String biaoji = (String) request.getAttribute("biaoji");
-        return riChang6sService.ChaxunAppSuoyouRichangRiqi(Shoujihao, biaoji);
+    public ReponseVo getAllManagerDaily(HttpServletRequest request, @RequestBody User user) {
+        String biaoji = (String) request.getAttribute("Biaoji");
+        return riChang6sService.ChaxunAppSuoyouRichangRiqi(user.getShoujihao(), biaoji);
     }
 
     /**
      * 获取药物趋势
      *
-     * @param Shoujihao
+     * @param user
      * @return
      */
     @PostMapping("/guanjiahuoquyaowuqushi")
-    public ReponseVo getAllManagerMedicine(HttpServletRequest request, @RequestBody String Shoujihao) {
-        String biaoji = (String) request.getAttribute("biaoji");
-        return keHuYaoWu18sService.selectByYonghuwaijian(Shoujihao, biaoji);
+    public ReponseVo getAllManagerMedicine(HttpServletRequest request, @RequestBody User user) {
+        String biaoji = (String) request.getAttribute("Biaoji");
+        return keHuYaoWu18sService.selectByYonghuwaijian(user.getShoujihao(), biaoji);
     }
 
     /**
@@ -124,7 +126,7 @@ public class GuanliController extends BaseApiService {
      * @return
      */
     @PostMapping("/appzuixinbanben")
-    public ReponseVo getAppVersion(HttpServletRequest request) {
+    public ReponseVo getAppVersion() {
         return appBanBen21sService.getAppUpdate();
     }
 
@@ -134,8 +136,8 @@ public class GuanliController extends BaseApiService {
      * @return
      */
     @PostMapping("/shebeishiyongshijian")
-    public ReponseVo getDeviceTime(ShebeiShijianMoxingCanshu ShebeiShijianMoxingCanshu) {
-        return quShiService.selectByXuliehao(ShebeiShijianMoxingCanshu.getShoujihao());
+    public ReponseVo getDeviceTime(@RequestBody ShebeiShijianMoxingCanshu ShebeiShijianMoxingCanshu) {
+        return quShiService.selectByXuliehao(ShebeiShijianMoxingCanshu.getShebeiShijianMoxing().getShoujihao());
     }
 
 }

@@ -64,7 +64,7 @@
       #{leixing,jdbcType=VARCHAR}, #{jiliang,jdbcType=VARCHAR}, #{shixiao,jdbcType=VARCHAR}, 
       #{riqi,jdbcType=VARCHAR})
   </insert>
-    <insert id="insertSelective" parameterType="com.amchis.firstgeneration.bean.guanli.kehuyaowu18s.KeHuYaoWu18s">
+    <insert id="insertSelective" parameterType="com.amchis.firstgeneration.bean.huoban.kehuyaowu18s.Kehuyaowu18s">
         insert into kehuyaowu18s
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -132,7 +132,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective"
-            parameterType="com.amchis.firstgeneration.bean.guanli.kehuyaowu18s.KeHuYaoWu18s">
+            parameterType="com.amchis.firstgeneration.bean.huoban.kehuyaowu18s.Kehuyaowu18s">
         update kehuyaowu18s
         <set>
             <if test="waijian != null">
@@ -165,7 +165,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.amchis.firstgeneration.bean.guanli.kehuyaowu18s.KeHuYaoWu18s">
+    <update id="updateByPrimaryKey" parameterType="com.amchis.firstgeneration.bean.huoban.kehuyaowu18s.Kehuyaowu18s">
     update kehuyaowu18s
     set waijian = #{waijian,jdbcType=VARCHAR},
       yonghuwaijian = #{yonghuwaijian,jdbcType=VARCHAR},

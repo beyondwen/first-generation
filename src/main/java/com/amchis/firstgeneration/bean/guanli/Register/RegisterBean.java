@@ -1,30 +1,23 @@
 package com.amchis.firstgeneration.bean.guanli.Register;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+
+import javax.validation.constraints.NotBlank;
 
 @Data
 public class RegisterBean {
-    private String Mingcheng;
-    private String Shoujihao;
-    private String Gonghao;
-    private String Mima;
-
-    private Guanjiacanshu Guanjiacanshu;
-
-    public String getMingcheng() {
-        return Guanjiacanshu.getMingcheng();
-    }
-
-    public String getShoujihao() {
-        return Guanjiacanshu.getShoujihao();
-    }
-
-    public String getGonghao() {
-        return Guanjiacanshu.getGonghao();
-    }
-
-    public String getMima() {
-        return Guanjiacanshu.getMima();
-    }
+    @JsonProperty("Mingcheng")
+    @NotBlank(message = "名称不能为空")
+    private String mingcheng;
+    @JsonProperty("Shoujihao")
+    @NotBlank(message = "手机号不能为空")
+    private String shoujihao;
+    @JsonProperty("Gonghao")
+    @NotBlank(message = "工号不能为空")
+    private String gonghao;
+    @JsonProperty("Mima")
+    @NotBlank(message = "密码不能为空")
+    private String mima;
 
 }
