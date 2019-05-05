@@ -9,8 +9,12 @@ public class ReponseVo<T> {
 
     private T Neirong;
 
+    public ReponseVo() {
+    }
+
     public ReponseVo(String zhuangtai, T neirong) {
         Zhuangtai = zhuangtai;
         Neirong = neirong;
     }
+
 }

@@ -54,6 +54,7 @@ public class KeHuYaoWu18sService extends BaseApiService {
                         yaoWU.setShujuzhi(keHuYaoWu18.getJiliang());
                         yaoWU.setLeixing("ZAOYIDAOSU");
                         yaoWUS.add(yaoWU);
+                        continue;
                     }
                     if ("YIDAO".equals(keHuYaoWu18.getLeixing()) && "ZHONG".equals(keHuYaoWu18.getQujian())) {
                         YaoWU yaoWU = new YaoWU();
@@ -61,6 +62,7 @@ public class KeHuYaoWu18sService extends BaseApiService {
                         yaoWU.setShujuzhi(keHuYaoWu18.getJiliang());
                         yaoWU.setLeixing("ZHONGYIDAOSU");
                         yaoWUS.add(yaoWU);
+                        continue;
                     }
                     if ("YIDAO".equals(keHuYaoWu18.getLeixing()) && "WAN".equals(keHuYaoWu18.getQujian())) {
                         YaoWU yaoWU = new YaoWU();
@@ -68,6 +70,7 @@ public class KeHuYaoWu18sService extends BaseApiService {
                         yaoWU.setShujuzhi(keHuYaoWu18.getJiliang());
                         yaoWU.setLeixing("WANYIDAOSU");
                         yaoWUS.add(yaoWU);
+                        continue;
                     }
                     if ("YIDAO".equals(keHuYaoWu18.getLeixing()) && "SHUIQIAN".equals(keHuYaoWu18.getQujian())) {
                         YaoWU yaoWU = new YaoWU();
@@ -83,6 +86,7 @@ public class KeHuYaoWu18sService extends BaseApiService {
                         yaoWU.setShujuzhi(keHuYaoWu18.getJiliang());
                         yaoWU.setLeixing("ZAOKOUFUYAO1");
                         yaoWUS.add(yaoWU);
+                        continue;
                     }
                     if ("ZAO".equals(keHuYaoWu18.getQujian()) && "KOUFUYAO2".equals(keHuYaoWu18.getLeixing())) {
                         YaoWU yaoWU = new YaoWU();
@@ -90,6 +94,7 @@ public class KeHuYaoWu18sService extends BaseApiService {
                         yaoWU.setShujuzhi(keHuYaoWu18.getJiliang());
                         yaoWU.setLeixing("ZAOKOUFUYAO2");
                         yaoWUS.add(yaoWU);
+                        continue;
                     }
                     if ("ZAO".equals(keHuYaoWu18.getQujian()) && "KOUFUYAO3".equals(keHuYaoWu18.getLeixing())) {
                         YaoWU yaoWU = new YaoWU();
@@ -97,6 +102,7 @@ public class KeHuYaoWu18sService extends BaseApiService {
                         yaoWU.setShujuzhi(keHuYaoWu18.getJiliang());
                         yaoWU.setLeixing("ZAOKOUFUYAO3");
                         yaoWUS.add(yaoWU);
+                        continue;
                     }
 
                     if ("ZHONG".equals(keHuYaoWu18.getQujian()) && "KOUFUYAO1".equals(keHuYaoWu18.getLeixing())) {
@@ -105,6 +111,7 @@ public class KeHuYaoWu18sService extends BaseApiService {
                         yaoWU.setShujuzhi(keHuYaoWu18.getJiliang());
                         yaoWU.setLeixing("ZHONGKOUFUYAO1");
                         yaoWUS.add(yaoWU);
+                        continue;
                     }
                     if ("ZHONG".equals(keHuYaoWu18.getQujian()) && "KOUFUYAO2".equals(keHuYaoWu18.getLeixing())) {
                         YaoWU yaoWU = new YaoWU();
@@ -112,6 +119,7 @@ public class KeHuYaoWu18sService extends BaseApiService {
                         yaoWU.setShujuzhi(keHuYaoWu18.getJiliang());
                         yaoWU.setLeixing("ZHONGKOUFUYAO2");
                         yaoWUS.add(yaoWU);
+                        continue;
                     }
                     if ("ZHONG".equals(keHuYaoWu18.getQujian()) && "KOUFUYAO3".equals(keHuYaoWu18.getLeixing())) {
                         YaoWU yaoWU = new YaoWU();
@@ -119,6 +127,7 @@ public class KeHuYaoWu18sService extends BaseApiService {
                         yaoWU.setShujuzhi(keHuYaoWu18.getJiliang());
                         yaoWU.setLeixing("ZHONGKOUFUYAO3");
                         yaoWUS.add(yaoWU);
+                        continue;
                     }
                     if ("WAN".equals(keHuYaoWu18.getQujian()) && "KOUFUYAO1".equals(keHuYaoWu18.getLeixing())) {
                         YaoWU yaoWU = new YaoWU();
@@ -126,6 +135,7 @@ public class KeHuYaoWu18sService extends BaseApiService {
                         yaoWU.setShujuzhi(keHuYaoWu18.getJiliang());
                         yaoWU.setLeixing("WANKOUFUYAO1");
                         yaoWUS.add(yaoWU);
+                        continue;
                     }
                     if ("WAN".equals(keHuYaoWu18.getQujian()) && "KOUFUYAO2".equals(keHuYaoWu18.getLeixing())) {
                         YaoWU yaoWU = new YaoWU();
@@ -133,6 +143,7 @@ public class KeHuYaoWu18sService extends BaseApiService {
                         yaoWU.setShujuzhi(keHuYaoWu18.getJiliang());
                         yaoWU.setLeixing("WANKOUFUYAO2");
                         yaoWUS.add(yaoWU);
+                        continue;
                     }
                     if ("WAN".equals(keHuYaoWu18.getQujian()) && "KOUFUYAO3".equals(keHuYaoWu18.getLeixing())) {
                         YaoWU yaoWU = new YaoWU();
@@ -143,7 +154,7 @@ public class KeHuYaoWu18sService extends BaseApiService {
                     }
 
                 }
-                return setResult("1",yaoWUS);
+                return setResult("1", yaoWUS);
             } else {
                 return setResult("0", "YAOWU_WEITIANXIE", "您没有填写过药物数据！");
             }

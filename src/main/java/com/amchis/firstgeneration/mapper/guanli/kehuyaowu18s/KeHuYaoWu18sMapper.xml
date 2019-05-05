@@ -50,6 +50,13 @@
     where khyw.Yonghuwaijian=#{waijian} and Shixiao='0'
     order by khyw.shujuriqi
   </select>
+    <select id="ChaxunAppKehuyaowu4kehuyaowu" parameterType="java.lang.String" resultType="com.amchis.firstgeneration.bean.huoban.kehuyaowu18s.Kehuyaowu18">
+    select
+    <include refid="Base_Column_List"/>
+    from kehuyaowu18s khyw
+    where khyw.Yonghuwaijian=#{waijian} and Shixiao='0'
+    order by khyw.shujuriqi
+  </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from kehuyaowu18s
     where id = #{id,jdbcType=INTEGER}

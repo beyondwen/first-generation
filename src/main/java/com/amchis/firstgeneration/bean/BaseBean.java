@@ -3,8 +3,6 @@ package com.amchis.firstgeneration.bean;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
-
 @Data
 public class BaseBean {
 
@@ -14,7 +12,6 @@ public class BaseBean {
     @JsonProperty(value = "Riqi")
     private String riqi;
 
-    @NotBlank(message = "是否失效不能为空")
     @JsonProperty(value = "Shixiao")
     private String shixiao;
 

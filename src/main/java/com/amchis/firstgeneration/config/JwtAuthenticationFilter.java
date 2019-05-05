@@ -153,6 +153,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if ("/huoban/ziyuanleixingluru".equals(request.getServletPath())) {
             return true;
         }
+        if ("/kehuapp/zhuce".equals(request.getServletPath())) {
+            return true;
+        }
+        if ("/kehuapp/denglu".equals(request.getServletPath())) {
+            return true;
+        }
         return false;
     }
 

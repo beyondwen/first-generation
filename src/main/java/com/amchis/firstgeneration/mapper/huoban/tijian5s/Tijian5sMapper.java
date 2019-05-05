@@ -17,7 +17,7 @@ public interface Tijian5sMapper extends BaseMapper<Tijian5s> {
 
     Tijian5s selectByPrimaryKey(Integer id);
 
-    Tijian5s selectByshujuriAndWaijian(@Param("shujuriqi") String shujuriqi,@Param("waijian") String waijian);
+    List<Tijian5s> selectByshujuriAndWaijian(@Param("shujuriqi") String shujuriqi,@Param("waijian") String waijian);
 
     List<Tijian5s> getAll();
 

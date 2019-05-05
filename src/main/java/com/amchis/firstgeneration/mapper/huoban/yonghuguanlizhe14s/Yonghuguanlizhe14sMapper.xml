@@ -19,7 +19,7 @@
         from yonghuguanlizhe14s
         where id = #{id,jdbcType=INTEGER}
     </select>
-    <select id="selectByWaijianAndGuanjiaWaijian" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <select id="selectByWaijianAndGuanjiaWaijian" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from yonghuguanlizhe14s

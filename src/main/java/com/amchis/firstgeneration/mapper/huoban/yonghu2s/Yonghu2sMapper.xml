@@ -57,11 +57,9 @@
         left join bangdingkongzhiqi15s kzq on kzq.shoujihao=kehu.shoujihao
         where kehu.waijian=#{waijian}
     </select>
-
-
     <select id="selectByShoujihaoAndJiaoyan" parameterType="java.lang.String" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List"/>
+        yh.*
         from yonghu2s yh
         left join jiaoyan10s jy on yh.waijian=jy.yonghuwaijian
         <where>
