@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.amchis.firstgeneration.mapper.kehuapp.xiazaigengxins.XiazaigengxinsMapper">
+  <resultMap id="BaseResultMap" type="com.amchis.firstgeneration.bean.kehuapp.xiazaigengxins.Xiazaigengxins">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="xuliehao" jdbcType="VARCHAR" property="xuliehao" />
+    <result column="ruanjian" jdbcType="INTEGER" property="ruanjian" />
+    <result column="shengbo" jdbcType="INTEGER" property="shengbo" />
+    <result column="mima" jdbcType="INTEGER" property="mima" />
+    <result column="sbshanchu" jdbcType="INTEGER" property="sbshanchu" />
+    <result column="xiazaidizhi" jdbcType="INTEGER" property="xiazaidizhi" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, xuliehao, ruanjian, shengbo, mima, sbshanchu, xiazaidizhi
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xiazaigengxins
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByXuliehao" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from xiazaigengxins
+    where xuliehao = #{xuliehao}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from xiazaigengxins
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.amchis.firstgeneration.bean.kehuapp.xiazaigengxins.Xiazaigengxins">
+    insert into xiazaigengxins (id, xuliehao, ruanjian, 
+      shengbo, mima, sbshanchu, 
+      xiazaidizhi)
+    values (#{id,jdbcType=INTEGER}, #{xuliehao,jdbcType=VARCHAR}, #{ruanjian,jdbcType=INTEGER}, 
+      #{shengbo,jdbcType=INTEGER}, #{mima,jdbcType=INTEGER}, #{sbshanchu,jdbcType=INTEGER}, 
+      #{xiazaidizhi,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.amchis.firstgeneration.bean.kehuapp.xiazaigengxins.Xiazaigengxins">
+    insert into xiazaigengxins
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="xuliehao != null">
+        xuliehao,
+      </if>
+      <if test="ruanjian != null">
+        ruanjian,
+      </if>
+      <if test="shengbo != null">
+        shengbo,
+      </if>
+      <if test="mima != null">
+        mima,
+      </if>
+      <if test="sbshanchu != null">
+        sbshanchu,
+      </if>
+      <if test="xiazaidizhi != null">
+        xiazaidizhi,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="xuliehao != null">
+        #{xuliehao,jdbcType=VARCHAR},
+      </if>
+      <if test="ruanjian != null">
+        #{ruanjian,jdbcType=INTEGER},
+      </if>
+      <if test="shengbo != null">
+        #{shengbo,jdbcType=INTEGER},
+      </if>
+      <if test="mima != null">
+        #{mima,jdbcType=INTEGER},
+      </if>
+      <if test="sbshanchu != null">
+        #{sbshanchu,jdbcType=INTEGER},
+      </if>
+      <if test="xiazaidizhi != null">
+        #{xiazaidizhi,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.amchis.firstgeneration.bean.kehuapp.xiazaigengxins.Xiazaigengxins">
+    update xiazaigengxins
+    <set>
+      <if test="xuliehao != null">
+        xuliehao = #{xuliehao,jdbcType=VARCHAR},
+      </if>
+      <if test="ruanjian != null">
+        ruanjian = #{ruanjian,jdbcType=INTEGER},
+      </if>
+      <if test="shengbo != null">
+        shengbo = #{shengbo,jdbcType=INTEGER},
+      </if>
+      <if test="mima != null">
+        mima = #{mima,jdbcType=INTEGER},
+      </if>
+      <if test="sbshanchu != null">
+        sbshanchu = #{sbshanchu,jdbcType=INTEGER},
+      </if>
+      <if test="xiazaidizhi != null">
+        xiazaidizhi = #{xiazaidizhi,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.amchis.firstgeneration.bean.kehuapp.xiazaigengxins.Xiazaigengxins">
+    update xiazaigengxins
+    set xuliehao = #{xuliehao,jdbcType=VARCHAR},
+      ruanjian = #{ruanjian,jdbcType=INTEGER},
+      shengbo = #{shengbo,jdbcType=INTEGER},
+      mima = #{mima,jdbcType=INTEGER},
+      sbshanchu = #{sbshanchu,jdbcType=INTEGER},
+      xiazaidizhi = #{xiazaidizhi,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
