@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -217,7 +218,7 @@ public class GuanliController extends BaseApiService {
 
     @ResponseBody
     @RequestMapping("/readexcelttttt")
-    public ReponseVo readExcelTTTTTT(@RequestParam("file") CommonsMultipartFile file) throws Exception {
+    public ReponseVo readExcelTTTTTT(@RequestParam("file") MultipartFile file) throws Exception {
         InputStream inputStream = file.getInputStream();
         String name = file.getOriginalFilename();
         Workbook workbook = null;
@@ -237,8 +238,6 @@ public class GuanliController extends BaseApiService {
             Sheet sheet = workbook.getSheetAt(s);
             int rowCount = sheet.getPhysicalNumberOfRows(); // 获取总行数
             // 遍历每一行
-            String[] id = new String[1];
-            String templateType = null;//模板类型（1 商务部分，2 报价部分 ，3 技术部分）
             for (int r = 0; r < rowCount; r++) {
                 Row row = sheet.getRow(r);
                 if (row != null) {
